@@ -1,16 +1,25 @@
 {
-  "name": "cra-template",
+  "name": "hearthstone-wiki",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bjorn86/hearthstone-wiki.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Bjorn86/hearthstone-wiki/issues"
+  },
+  "homepage": "https://bjorn86.github.io/hearthstone-wiki/",
+  "author": "Danila Legkobytov <legkobytov-danila@yandex.ru>",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "clsx": "^2.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "sass": "^1.69.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -35,7 +44,20 @@
       "plugin:storybook/recommended",
       "prettier"
     ],
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": [
+            "src"
+          ]
+        }
+      }
+    },
     "rules": {
+      "curly": [
+        "warn",
+        "all"
+      ],
       "react/jsx-filename-extension": [
         1,
         {
@@ -61,6 +83,19 @@
           "import/no-anonymous-default-export": "off",
           "import/no-extraneous-dependencies": "off"
         }
+      },
+      {
+        "files": [
+          "src/features/**/*Slice.js"
+        ],
+        "rules": {
+          "no-param-reassign": [
+            "error",
+            {
+              "props": false
+            }
+          ]
+        }
       }
     ]
   },
@@ -78,14 +113,14 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@storybook/addon-essentials": "^7.4.0",
-    "@storybook/addon-interactions": "^7.4.0",
-    "@storybook/addon-links": "^7.4.0",
-    "@storybook/blocks": "^7.4.0",
-    "@storybook/preset-create-react-app": "^7.4.0",
-    "@storybook/react": "^7.4.0",
-    "@storybook/react-webpack5": "^7.4.0",
-    "@storybook/testing-library": "^0.2.0",
+    "@storybook/addon-essentials": "^7.5.2",
+    "@storybook/addon-interactions": "^7.5.2",
+    "@storybook/addon-links": "^7.5.2",
+    "@storybook/blocks": "^7.5.2",
+    "@storybook/preset-create-react-app": "^7.5.2",
+    "@storybook/react": "^7.5.2",
+    "@storybook/react-webpack5": "^7.5.2",
+    "@storybook/testing-library": "^0.2.2",
     "babel-plugin-named-exports-order": "^0.0.2",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
@@ -98,11 +133,10 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-storybook": "^0.6.13",
     "husky": "^8.0.0",
-    "lint-staged": "^14.0.1",
+    "lint-staged": "^15.0.2",
     "prettier": "3.0.3",
-    "sass": "^1.66.1",
-    "storybook": "^7.4.0",
-    "webpack": "^5.88.2"
+    "storybook": "^7.5.2",
+    "webpack": "^5.89.0"
   },
   "lint-staged": {
     "*.{js,jsx}": "npm run lint",

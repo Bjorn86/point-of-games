@@ -1,6 +1,6 @@
-@mixin font-main($size, $color, $weight, $lh: false, $ls: false) {
+@mixin font-main($size, $color, $weight, $lh: 1.2, $ls: normal) {
   font: {
-    family: 'Inter', Helvetica, Arial, sans-serif;
+    family: 'Jost', Helvetica, Arial, sans-serif;
     size: $size;
     weight: $weight;
   }

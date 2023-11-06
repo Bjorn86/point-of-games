@@ -1,0 +1,10 @@
+@import 'src/app/styles/mixins';
+@import 'src/app/styles/variables';
+
+.container {
+  max-width: 100vw;
+}
+
+.title {
+  @include font-main($textL, #000, 700);
+}
