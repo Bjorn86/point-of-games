@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/hearthstone-wiki/static/css/main.b50bd25e.css",
-    "main.js": "/hearthstone-wiki/static/js/main.b381aa9e.js",
-    "static/css/323.a7cd7b6f.chunk.css": "/hearthstone-wiki/static/css/323.a7cd7b6f.chunk.css",
-    "static/js/323.8ea55dd0.chunk.js": "/hearthstone-wiki/static/js/323.8ea55dd0.chunk.js",
+    "main.css": "/hearthstone-wiki/static/css/main.f7498f79.css",
+    "main.js": "/hearthstone-wiki/static/js/main.ae120e12.js",
+    "static/css/323.769e1972.chunk.css": "/hearthstone-wiki/static/css/323.769e1972.chunk.css",
+    "static/js/323.861cce87.chunk.js": "/hearthstone-wiki/static/js/323.861cce87.chunk.js",
     "static/media/Jost-ExtraBold.woff": "/hearthstone-wiki/static/media/Jost-ExtraBold.21751e0b79c82de505ef.woff",
     "static/media/Jost-Bold.woff": "/hearthstone-wiki/static/media/Jost-Bold.5833ec686e5e2f61094e.woff",
     "static/media/Jost-SemiBold.woff": "/hearthstone-wiki/static/media/Jost-SemiBold.05015ad7d97ec7cb7b0e.woff",
@@ -23,13 +23,13 @@
     "static/media/Jost-Thin.woff2": "/hearthstone-wiki/static/media/Jost-Thin.d30cee7d4932f5fa09f2.woff2",
     "static/media/Jost-Regular.woff2": "/hearthstone-wiki/static/media/Jost-Regular.e71fd944979a5ec1ff18.woff2",
     "index.html": "/hearthstone-wiki/index.html",
-    "main.b50bd25e.css.map": "/hearthstone-wiki/static/css/main.b50bd25e.css.map",
-    "main.b381aa9e.js.map": "/hearthstone-wiki/static/js/main.b381aa9e.js.map",
-    "323.a7cd7b6f.chunk.css.map": "/hearthstone-wiki/static/css/323.a7cd7b6f.chunk.css.map",
-    "323.8ea55dd0.chunk.js.map": "/hearthstone-wiki/static/js/323.8ea55dd0.chunk.js.map"
+    "main.f7498f79.css.map": "/hearthstone-wiki/static/css/main.f7498f79.css.map",
+    "main.ae120e12.js.map": "/hearthstone-wiki/static/js/main.ae120e12.js.map",
+    "323.769e1972.chunk.css.map": "/hearthstone-wiki/static/css/323.769e1972.chunk.css.map",
+    "323.861cce87.chunk.js.map": "/hearthstone-wiki/static/js/323.861cce87.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b50bd25e.css",
-    "static/js/main.b381aa9e.js"
+    "static/css/main.f7498f79.css",
+    "static/js/main.ae120e12.js"
   ]
 }

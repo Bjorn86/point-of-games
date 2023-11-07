@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkhearthstone_wiki=self.webpackChunkhearthstone_wiki||[]).push([[323],{323:function(e,t,n){n.r(t),n.d(t,{default:function(){return h}});var r="homePage_title__kBT5E",s=n(184);var h=function(){return(0,s.jsxs)(s.Fragment,{children:[(0,s.jsx)("h1",{className:r,children:"Test"}),(0,s.jsx)("hr",{})]})}}}]);
-//# sourceMappingURL=323.8ea55dd0.chunk.js.map
