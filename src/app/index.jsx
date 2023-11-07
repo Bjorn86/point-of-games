@@ -1,15 +1,20 @@
+// IMPORT COMPONENTS
+import { Routing } from 'pages';
+
+// IMPORT PROVIDERS
+import { withProviders } from './providers';
+
 // IMPORT STYLES
-import './index.scss';
 import s from './app.module.scss';
+import './index.scss';
 
 // APP CORE COMPONENT
 function App() {
   return (
     <div className={s.container}>
-      <h1 className={s.title}>Test</h1>
-      <hr />
+      <Routing />
     </div>
   );
 }
 
-export default App;
+export default withProviders(App);

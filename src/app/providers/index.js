@@ -2,7 +2,8 @@
 import compose from 'compose-function';
 
 // IMPORT PROVIDERS
-import { withStoreProvider } from './with-store-provider';
+import { withRouter } from './with-router';
+import { withStore } from './with-store';
 
 // EXPORT PROVIDERS
-export const withProviders = compose(withStoreProvider);
+export const withProviders = compose(withStore, withRouter);
