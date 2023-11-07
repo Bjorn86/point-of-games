@@ -28,6 +28,8 @@ jobs:
   cd:
     name: Continuous Deployment
     needs: ci
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
 
     steps:
