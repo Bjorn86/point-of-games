@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/hearthstone-wiki/static/css/main.b50bd25e.css",
+    "main.js": "/hearthstone-wiki/static/js/main.b381aa9e.js",
+    "static/css/323.a7cd7b6f.chunk.css": "/hearthstone-wiki/static/css/323.a7cd7b6f.chunk.css",
+    "static/js/323.8ea55dd0.chunk.js": "/hearthstone-wiki/static/js/323.8ea55dd0.chunk.js",
+    "static/media/Jost-ExtraBold.woff": "/hearthstone-wiki/static/media/Jost-ExtraBold.21751e0b79c82de505ef.woff",
+    "static/media/Jost-Bold.woff": "/hearthstone-wiki/static/media/Jost-Bold.5833ec686e5e2f61094e.woff",
+    "static/media/Jost-SemiBold.woff": "/hearthstone-wiki/static/media/Jost-SemiBold.05015ad7d97ec7cb7b0e.woff",
+    "static/media/Jost-Medium.woff": "/hearthstone-wiki/static/media/Jost-Medium.f5af25d0876e8cd29e47.woff",
+    "static/media/Jost-ExtraLight.woff": "/hearthstone-wiki/static/media/Jost-ExtraLight.684cb542fdc3692063fe.woff",
+    "static/media/Jost-Black.woff": "/hearthstone-wiki/static/media/Jost-Black.f5b2fa66918dcf1864ab.woff",
+    "static/media/Jost-Light.woff": "/hearthstone-wiki/static/media/Jost-Light.0a74acd346afab70e802.woff",
+    "static/media/Jost-Thin.woff": "/hearthstone-wiki/static/media/Jost-Thin.7d82095f516bab2d9462.woff",
+    "static/media/Jost-Regular.woff": "/hearthstone-wiki/static/media/Jost-Regular.a72cd5b49e99f4dbe1f5.woff",
+    "static/media/Jost-Bold.woff2": "/hearthstone-wiki/static/media/Jost-Bold.8350ead2860a29c1526d.woff2",
+    "static/media/Jost-SemiBold.woff2": "/hearthstone-wiki/static/media/Jost-SemiBold.d9fa7556bb581945cd92.woff2",
+    "static/media/Jost-Medium.woff2": "/hearthstone-wiki/static/media/Jost-Medium.fd894d04f93951613536.woff2",
+    "static/media/Jost-ExtraBold.woff2": "/hearthstone-wiki/static/media/Jost-ExtraBold.f16de9e43d57d1354c37.woff2",
+    "static/media/Jost-ExtraLight.woff2": "/hearthstone-wiki/static/media/Jost-ExtraLight.970ed3e0198387b0fe2c.woff2",
+    "static/media/Jost-Light.woff2": "/hearthstone-wiki/static/media/Jost-Light.7715033cc137f3dee51c.woff2",
+    "static/media/Jost-Black.woff2": "/hearthstone-wiki/static/media/Jost-Black.be90eb7b0f4a38d68550.woff2",
+    "static/media/Jost-Thin.woff2": "/hearthstone-wiki/static/media/Jost-Thin.d30cee7d4932f5fa09f2.woff2",
+    "static/media/Jost-Regular.woff2": "/hearthstone-wiki/static/media/Jost-Regular.e71fd944979a5ec1ff18.woff2",
+    "index.html": "/hearthstone-wiki/index.html",
+    "main.b50bd25e.css.map": "/hearthstone-wiki/static/css/main.b50bd25e.css.map",
+    "main.b381aa9e.js.map": "/hearthstone-wiki/static/js/main.b381aa9e.js.map",
+    "323.a7cd7b6f.chunk.css.map": "/hearthstone-wiki/static/css/323.a7cd7b6f.chunk.css.map",
+    "323.8ea55dd0.chunk.js.map": "/hearthstone-wiki/static/js/323.8ea55dd0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b50bd25e.css",
+    "static/js/main.b381aa9e.js"
+  ]
+}
