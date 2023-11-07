@@ -1,7 +1,6 @@
 # Hearthstone Wiki
 
-![ci workflow](https://github.com/Bjorn86/hearthstone-wiki/actions/workflows/ci.yml/badge.svg?event=push)
-![cd workflow](https://github.com/Bjorn86/hearthstone-wiki/actions/workflows/cd.yml/badge.svg?event=push)
+![CI/CD workflow](https://github.com/Bjorn86/hearthstone-wiki/actions/workflows/ci-cd.yml/badge.svg?event=push)
 
 Проект представляет из себя SPA, предоставляющие информацию о картах из игры [Hearthstone](https://hearthstone.blizzard.com). Выполнен в рамках React-интенсива стажировки в [Aston](https://astondevs.ru). Информация о картах предоставляется [Hearthstone API](https://hearthstoneapi.com).
 

@@ -9,6 +9,7 @@
   "bugs": {
     "url": "https://github.com/Bjorn86/hearthstone-wiki/issues"
   },
+  "homepage": "https://bjorn86.github.io/hearthstone-wiki/",
   "author": "Danila Legkobytov <legkobytov-danila@yandex.ru>",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
@@ -36,7 +37,9 @@
     "commit": "cz",
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -135,6 +138,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-storybook": "^0.6.13",
+    "gh-pages": "^6.0.0",
     "husky": "^8.0.0",
     "lint-staged": "^15.0.2",
     "prettier": "3.0.3",
