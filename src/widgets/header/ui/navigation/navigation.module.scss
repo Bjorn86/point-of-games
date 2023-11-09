@@ -1,0 +1,20 @@
+@import 'src/app/styles/mixins';
+@import 'src/app/styles/variables';
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.button {
+  padding: 0;
+  border: none;
+  @include font-main($textM, $color-blue, 400);
+  background-color: transparent;
+  cursor: pointer;
+  @include hover;
+}
