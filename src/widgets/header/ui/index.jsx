@@ -3,14 +3,10 @@ import { useContext } from 'react';
 import clsx from 'clsx';
 
 // IMPORT CONTEXT
-import { ThemeContext } from 'app/context';
+import { ThemeContext } from 'app/contexts';
 
-// IMPORT UI-KIT
-import Button from 'shared/ui/button';
-
-// IMPORT ICONS
-import { ReactComponent as SunIcon } from 'shared/ui/assets/icons/sun.svg';
-import { ReactComponent as MoonIcon } from 'shared/ui/assets/icons/moon.svg';
+// IMPORT FEATURES
+import { ChangeTheme } from 'features/theme/change-theme';
 
 // IMPORT COMPONENTS
 import Navigation from './navigation';
@@ -30,14 +26,7 @@ function Header() {
         <Logo />
         <div className={s.navWrapper}>
           <Navigation />
-          <Button
-            content={theme === 'dark' ? <MoonIcon /> : <SunIcon />}
-            alt={
-              theme === 'dark'
-                ? 'Сменить тему на светлую'
-                : 'Сменить тему на темную'
-            }
-          />
+          <ChangeTheme />
         </div>
       </div>
     </header>

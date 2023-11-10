@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import clsx from 'clsx';
 
 // IMPORT CONTEXT
-import { ThemeContext } from 'app/context';
+import { ThemeContext } from 'app/contexts';
 import { Link } from 'react-router-dom';
 
 // IMPORT STYLES

@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 // IMPORT STYLES
 import s from './button.module.scss';
 
+// BUTTON UI COMPONENT
+/* TODO: Посмотреть в дальнейшем по интерфейсу нужно ли будет расширение для кнопки с текстом, если нет то удалить расширение на текст */
 function Button({ ...props }) {
   return (
     <button

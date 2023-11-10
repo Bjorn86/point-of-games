@@ -1,10 +1,14 @@
-// IMPORT PACKAGES
-import compose from 'compose-function';
-
 // IMPORT PROVIDERS
-import { withRouter } from './with-router';
-import { withStore } from './with-store';
-import { withTheme } from './with-theme';
+import { ThemeProvider } from './theme-provider';
+import { RouterProvider } from './router-provider';
+import { StoreProvider } from './store-provider';
 
-// EXPORT PROVIDERS
-export const withProviders = compose(withStore, withRouter, withTheme);
+export const withProviders = (Component) => () => (
+  <StoreProvider>
+    <RouterProvider>
+      <ThemeProvider>
+        <Component />
+      </ThemeProvider>
+    </RouterProvider>
+  </StoreProvider>
+);
