@@ -1,8 +1,8 @@
-// IMPORT UI-KIT
-import HeaderLink from 'shared/ui/header-link';
-
 // IMPORT CONFIGS
-import { navListForUser } from 'widgets/header/ui/navigation/config';
+import { navListForUser } from './config';
+
+// IMPORT UI-KIT
+import HeaderLink from '../header-link';
 
 // IMPORT STYLES
 import s from './navigation.module.scss';

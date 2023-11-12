@@ -8,7 +8,7 @@ import { ThemeContext } from 'app/contexts';
 // IMPORT FEATURES
 import { ChangeTheme } from 'features/theme/change-theme';
 
-// IMPORT COMPONENTS
+// IMPORT UI COMPONENTS
 import Navigation from './navigation';
 import Logo from './logo';
 

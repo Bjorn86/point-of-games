@@ -21,6 +21,7 @@ function ChangeTheme() {
 
   return (
     <Button
+      view='rounded'
       content={theme === 'dark' ? <MoonIcon /> : <SunIcon />}
       alt={
         theme === 'dark' ? 'Сменить тему на светлую' : 'Сменить тему на темную'
