@@ -1,15 +1,18 @@
-// IMPORT PACKAGES
 import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
+import { paths } from 'shared/routing/paths';
 
-// PAGES
+const BaseLayout = lazy(() => import('widgets/layouts/base-layout'));
 const HomePage = lazy(() => import('./home-page'));
 
-// EXPORT ROUTING
-export function Routing() {
+function Routing() {
   return (
     <Routes>
-      <Route path='/' element={<HomePage />} />
+      <Route path={paths.home} element={<BaseLayout />}>
+        <Route index element={<HomePage />} />
+      </Route>
     </Routes>
   );
 }
+
+export default Routing;

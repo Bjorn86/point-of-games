@@ -1,0 +1,12 @@
+@import 'src/app/styles/mixins';
+@import 'src/app/styles/variables';
+
+.main {
+  background-color: $color-white;
+  flex: 1 1 auto;
+  max-width: 100%;
+}
+
+.mainDark {
+  background-color: $color-light-black;
+}
