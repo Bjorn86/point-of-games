@@ -1,0 +1,13 @@
+@import 'src/app/styles/mixins';
+@import 'src/app/styles/variables';
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formButton {
+  margin-top: 50px;
+}
