@@ -1,0 +1,56 @@
+@import 'src/app/styles/mixins';
+@import 'src/app/styles/variables';
+
+.wrapper {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.caption {
+  display: block;
+  min-height: 26px;
+  margin-left: 16px;
+  @include font-main($textS, $color-grey, 500);
+}
+
+.error {
+  color: $color-red;
+}
+
+.input {
+  padding: 9px 50px 9px 16px;
+  box-sizing: border-box;
+  border: 1px solid $color-grey;
+  border-radius: 12px;
+  background-color: transparent;
+  @include font-main($textM, $color-black, 500);
+  transition: border-color 0.4s ease;
+  &::placeholder {
+    @include font-main($textM, $color-black, 400);
+  }
+  &:focus::placeholder {
+    visibility: hidden;
+  }
+  &:hover:enabled {
+    border-color: $color-blue;
+  }
+  &:active,
+  &:focus,
+  &:focus-visible {
+    border-color: $color-dark-violet;
+    outline: none;
+  }
+  &:disabled {
+    opacity: 0.4;
+  }
+}
+
+.inputDark {
+  color: $color-white;
+  &::placeholder {
+    color: $color-white;
+  }
+}

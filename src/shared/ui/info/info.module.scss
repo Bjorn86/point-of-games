@@ -1,0 +1,8 @@
+@import 'src/app/styles/mixins';
+@import 'src/app/styles/variables';
+
+.info {
+  margin: 20px 0 0;
+  @include font-main($textS, $color-red, 500);
+  text-align: center;
+}
