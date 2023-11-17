@@ -1,4 +1,4 @@
-@mixin font-main($size, $color, $weight, $lh: 1.2, $ls: normal) {
+@mixin font-main($size, $color, $weight, $lh: normal, $ls: normal) {
   font: {
     family: 'Jost', Helvetica, Arial, sans-serif;
     size: $size;
@@ -11,4 +11,19 @@
   @if $ls {
     letter-spacing: $ls;
   }
+}
+
+@mixin hover {
+  transition: opacity 0.4s ease;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+@mixin shadow-lt {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+@mixin shadow-dt {
+  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.2);
 }

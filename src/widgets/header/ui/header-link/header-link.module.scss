@@ -1,0 +1,8 @@
+@import 'src/app/styles/mixins';
+@import 'src/app/styles/variables';
+
+.link {
+  @include font-main($textM, $color-blue, 400);
+  text-decoration: none;
+  @include hover;
+}
