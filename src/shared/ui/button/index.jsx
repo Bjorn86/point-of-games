@@ -18,6 +18,7 @@ function Button({ ...props }) {
       )}
       type={props.type === 'submit' ? 'submit' : 'button'}
       onClick={props.onClick}
+      disabled={props.isDisabled}
       {...(typeof props.content === 'string'
         ? {}
         : { title: props.alt, 'aria-label': props.alt })}
@@ -36,6 +37,7 @@ Button.propTypes = {
   content: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
     .isRequired,
   onClick: PropTypes.func,
+  isDisabled: PropTypes.bool,
   alt: PropTypes.string,
 };
 
@@ -43,5 +45,6 @@ Button.defaultProps = {
   addClass: null,
   type: 'button',
   onClick: null,
+  isDisabled: false,
   alt: null,
 };

@@ -1,5 +1,14 @@
+// IMPORT PACKAGES
+import { useContext } from 'react';
+
+// IMPORT CONTEXT
+import { CurrentUserContext } from 'app/contexts';
+
+// IMPORT FEATURES
+import { Logout } from 'features/auth/logout';
+
 // IMPORT CONFIGS
-import { navListForUser } from './config';
+import { navListForUser, navListForGuest } from './config';
 
 // IMPORT UI-KIT
 import HeaderLink from '../header-link';
@@ -9,6 +18,9 @@ import s from './navigation.module.scss';
 
 // NAVIGATION COMPONENT
 function Navigation() {
+  // HOOKS
+  const { currentUser } = useContext(CurrentUserContext);
+
   // HANDLER RENDER LINKS LIST
   function renderLinksList(list) {
     return list.map((item) => (
@@ -21,14 +33,14 @@ function Navigation() {
   return (
     <nav>
       <ul className={s.list}>
-        {/* TODO: Когда будет пользователь, проверять есть ли он, определять список и кнопку */}
-        {renderLinksList(navListForUser)}
-        <li>
-          {/* TODO: Добавить обработчик на клик */}
-          <button className={s.button} type='button'>
-            Выход
-          </button>
-        </li>
+        {currentUser
+          ? renderLinksList(navListForUser)
+          : renderLinksList(navListForGuest)}
+        {currentUser && (
+          <li>
+            <Logout />
+          </li>
+        )}
       </ul>
     </nav>
   );

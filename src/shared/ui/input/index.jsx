@@ -1,11 +1,11 @@
 // IMPORT PACKAGES
-import { useCallback, useEffect, useState, useContext } from 'react';
+import { useCallback, useEffect, useState, memo } from 'react';
 import { useController } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
-// IMPORT CONTEXT
-import { ThemeContext } from 'app/contexts';
+// IMPORT HOOKS
+import { useTheme } from 'shared/lib/use-theme';
 
 // IMPORT UI-KIT
 import Button from 'shared/ui/button';
@@ -17,11 +17,12 @@ import { ReactComponent as EyeIcon } from 'shared/ui/assets/icons/eye.svg';
 // IMPORT STYLES
 import s from './input.module.scss';
 
+// INPUT UI COMPONENT
 function Input({ ...props }) {
   // HOOKS
   const [isPasswordVisible, setPasswordVisible] = useState(false);
   const [labelText, setLabelText] = useState('');
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
   const {
     field,
     fieldState: { error },
@@ -29,21 +30,20 @@ function Input({ ...props }) {
     name: props.inputId,
     control: props.control,
     defaultValue: '',
-    rules: props.validationRules,
   });
 
   // SHOW/HIDE PASSWORD
-  const onClick = useCallback(() => {
+  const handleButtonClick = useCallback(() => {
     setPasswordVisible(!isPasswordVisible);
   }, [isPasswordVisible]);
 
   // SET LABEL TEXT ON FOCUS EVENT
-  const onFocus = () => {
+  const handleFocus = () => {
     setLabelText(props.placeholder);
   };
 
   // SET LABEL TEXT ON BLUR EVENT
-  const onBlur = () => {
+  const handleBlur = () => {
     if (props.label) {
       setLabelText(props.label);
     } else if (field.value) {
@@ -55,7 +55,7 @@ function Input({ ...props }) {
   };
 
   // BUTTON ICON SELECTION HANDLER
-  const showIcon = useCallback(() => {
+  const handleButtonIcon = useCallback(() => {
     if (isPasswordVisible) {
       if (theme === 'dark') {
         return <EyeSlashIcon fill='#fff' />;
@@ -92,16 +92,16 @@ function Input({ ...props }) {
         autoComplete='off'
         disabled={props.isDisabled}
         onChange={field.onChange}
-        onFocus={onFocus}
-        onBlur={onBlur}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         value={field.value}
       />
       {props.withButton && (
         <Button
           view='inInput'
-          onClick={onClick}
+          onClick={handleButtonClick}
           alt={isPasswordVisible ? 'Скрыть пароль' : 'Показать пароль'}
-          content={showIcon()}
+          content={handleButtonIcon()}
         />
       )}
       <span className={clsx(s.caption, s.error)}>{error?.message}</span>
@@ -109,12 +109,11 @@ function Input({ ...props }) {
   );
 }
 
-export default Input;
+export default memo(Input);
 
 Input.propTypes = {
   inputId: PropTypes.string.isRequired,
   control: PropTypes.shape({}),
-  validationRules: PropTypes.shape({}),
   label: PropTypes.string,
   inputType: PropTypes.string.isRequired,
   formName: PropTypes.string.isRequired,
@@ -125,7 +124,6 @@ Input.propTypes = {
 
 Input.defaultProps = {
   control: {},
-  validationRules: {},
   label: '',
   placeholder: '',
   withButton: false,

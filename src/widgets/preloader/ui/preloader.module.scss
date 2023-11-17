@@ -1,0 +1,21 @@
+@import 'src/app/styles/mixins';
+@import 'src/app/styles/variables';
+
+.preloader {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background:
+    url('../../../shared/ui/assets/images/preloader.svg') center center/auto
+      no-repeat,
+    $color-white;
+}
+
+.preloaderDark {
+  background:
+    url('../../../shared/ui/assets/images/preloader.svg') center center/auto
+      no-repeat,
+    $color-light-black;
+}

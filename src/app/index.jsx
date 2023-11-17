@@ -1,4 +1,4 @@
-// IMPORT COMPONENTS
+// IMPORT ROUTING
 import { Routing } from 'pages';
 
 // IMPORT PROVIDERS

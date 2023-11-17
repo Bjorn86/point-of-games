@@ -2,4 +2,4 @@
 import { createContext } from 'react';
 
 // CONTEXTS
-export const ThemeContext = createContext();
+export const CurrentUserContext = createContext();

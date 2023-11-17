@@ -1,8 +1,5 @@
 // IMPORT MODEL
-import { themeReducer } from './model/slice';
-
-// IMPORT LIB
-import { useTheme } from './lib/use-theme';
+import { themeReducer, changeTheme, selectTheme } from './model/slice';
 
 // EXPORT ENTITY
-export { themeReducer, useTheme };
+export { themeReducer, changeTheme, selectTheme };

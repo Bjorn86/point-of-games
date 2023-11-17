@@ -1,10 +1,10 @@
 // IMPORT PACKAGES
 import { Outlet } from 'react-router-dom';
-import { useContext } from 'react';
+import { memo } from 'react';
 import clsx from 'clsx';
 
-// IMPORT CONTEXT
-import { ThemeContext } from 'app/contexts';
+// IMPORT HOOKS
+import { useTheme } from 'shared/lib/use-theme';
 
 // IMPORT WIDGETS
 import { Header } from 'widgets/header';
@@ -15,7 +15,7 @@ import s from './base-layout.module.scss';
 // BASE LAYOUT WIDGET
 function BaseLayout() {
   // HOOKS
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
 
   return (
     <>
@@ -27,4 +27,4 @@ function BaseLayout() {
   );
 }
 
-export default BaseLayout;
+export default memo(BaseLayout);

@@ -1,5 +1,6 @@
 // IMPORT PACKAGES
-import { Children, cloneElement } from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Children, cloneElement, memo } from 'react';
 import { useForm } from 'react-hook-form';
 import PropTypes from 'prop-types';
 
@@ -9,9 +10,13 @@ import Button from 'shared/ui/button';
 // IMPORT STYLES
 import s from './form.module.scss';
 
+// FORM UI COMPONENT
 function Form({ ...props }) {
   // HOOKS
-  const { control, handleSubmit } = useForm({ mode: 'onBlur' });
+  const { control, handleSubmit } = useForm({
+    mode: 'onBlur',
+    resolver: yupResolver(props.validationSchema),
+  });
 
   return (
     <form
@@ -31,16 +36,24 @@ function Form({ ...props }) {
         view='withText'
         type='submit'
         content={props.buttonText}
+        isDisabled={props.isDisabled}
       />
     </form>
   );
 }
 
-export default Form;
+export default memo(Form);
 
 Form.propTypes = {
+  validationSchema: PropTypes.shape({}),
   formName: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
   buttonText: PropTypes.string.isRequired,
+  isDisabled: PropTypes.bool,
+};
+
+Form.defaultProps = {
+  validationSchema: {},
+  isDisabled: false,
 };

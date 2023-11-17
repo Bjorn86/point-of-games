@@ -1,11 +1,10 @@
 // IMPORT PACKAGES
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
-// IMPORT CONTEXT
-import { ThemeContext } from 'app/contexts';
+// IMPORT HOOKS
+import { useTheme } from 'shared/lib/use-theme';
 
 // IMPORT PATHS
 import { paths } from 'shared/routing/paths';
@@ -13,9 +12,10 @@ import { paths } from 'shared/routing/paths';
 // IMPORT STYLES
 import s from './auth-section.module.scss';
 
+// AUTH SECTION WIDGET
 function AuthSection({ ...props }) {
   // HOOKS
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
 
   return (
     <section className={s.section}>

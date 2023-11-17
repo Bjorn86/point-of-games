@@ -1,8 +1,6 @@
-// IMPORT PACKAGES
-import { useContext } from 'react';
-
-// IMPORT CONTEXT
-import { ThemeContext } from 'app/contexts';
+// IMPORT HOOKS
+import { useToggleTheme } from 'features/theme/lib/use-toggle-theme';
+import { useTheme } from 'shared/lib/use-theme';
 
 // IMPORT UI-KIT
 import Button from 'shared/ui/button';
@@ -11,13 +9,11 @@ import Button from 'shared/ui/button';
 import { ReactComponent as SunIcon } from 'shared/ui/assets/icons/sun.svg';
 import { ReactComponent as MoonIcon } from 'shared/ui/assets/icons/moon.svg';
 
-// IMPORT HOOKS
-import { useTheme } from 'entities/theme';
-
+// CHANGE THEME FEATURE
 function ChangeTheme() {
   // HOOKS
-  const theme = useContext(ThemeContext);
-  const { toggleTheme } = useTheme();
+  const handleToggleTheme = useToggleTheme();
+  const theme = useTheme();
 
   return (
     <Button
@@ -26,7 +22,7 @@ function ChangeTheme() {
       alt={
         theme === 'dark' ? 'Сменить тему на светлую' : 'Сменить тему на темную'
       }
-      onClick={toggleTheme}
+      onClick={handleToggleTheme}
     />
   );
 }

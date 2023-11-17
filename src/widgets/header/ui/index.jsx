@@ -1,9 +1,8 @@
 // IMPORT PACKAGES
-import { useContext } from 'react';
 import clsx from 'clsx';
 
-// IMPORT CONTEXT
-import { ThemeContext } from 'app/contexts';
+// IMPORT HOOKS
+import { useTheme } from 'shared/lib/use-theme';
 
 // IMPORT FEATURES
 import { ChangeTheme } from 'features/theme/change-theme';
@@ -18,7 +17,7 @@ import s from './header.module.scss';
 // HEADER WIDGET
 function Header() {
   // HOOKS
-  const theme = useContext(ThemeContext);
+  const theme = useTheme();
 
   return (
     <header className={clsx(s.header, { [s.headerDark]: theme === 'dark' })}>

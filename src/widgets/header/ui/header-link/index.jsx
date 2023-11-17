@@ -1,5 +1,6 @@
 // IMPORT PACKAGES
 import { Link } from 'react-router-dom';
+import { memo } from 'react';
 import PropTypes from 'prop-types';
 
 // IMPORT STYLES
@@ -14,7 +15,7 @@ function HeaderLink({ ...props }) {
   );
 }
 
-export default HeaderLink;
+export default memo(HeaderLink);
 
 HeaderLink.propTypes = {
   text: PropTypes.string.isRequired,
