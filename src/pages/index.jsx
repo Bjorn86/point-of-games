@@ -1,5 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
-import { lazy } from 'react';
+import { lazy, useContext } from 'react';
+import { CurrentUserContext } from 'app/contexts';
+import { Preloader } from 'widgets/preloader';
 import { paths } from 'shared/routing/paths';
 
 const BaseLayout = lazy(() => import('widgets/layouts/base-layout'));
@@ -8,7 +10,11 @@ const HomePage = lazy(() => import('./home-page'));
 const Login = lazy(() => import('./login'));
 
 function Routing() {
-  return (
+  const { isLoading } = useContext(CurrentUserContext);
+
+  return isLoading ? (
+    <Preloader />
+  ) : (
     <Routes>
       <Route path={paths.home} element={<BaseLayout />}>
         <Route index element={<HomePage />} />

@@ -11,4 +11,10 @@ export const signIn = ({ email, password }) =>
     ? fb.signIn({ email, password })
     : ls.signIn({ email, password });
 
-/* TODO Добавить logout и checkAuth */
+export const logout = () =>
+  process.env.REACT_APP_REMOTE_STORE === 'firebase' ? fb.logout() : ls.logout();
+
+export const checkAuth = (cb) =>
+  process.env.REACT_APP_REMOTE_STORE === 'firebase'
+    ? fb.checkAuth(cb)
+    : ls.checkAuth(cb);

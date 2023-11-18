@@ -1,10 +1,13 @@
-import { navListForGuest } from './config';
+import { useContext } from 'react';
+import { CurrentUserContext } from 'app/contexts';
+import { Logout } from 'features/auth/logout';
+import { navListForGuest, navListForUser } from './config';
 import HeaderLink from '../header-link';
 import s from './navigation.module.scss';
 
 // NAVIGATION COMPONENT
 function Navigation() {
-  /* TODO Импортировать текущего пользователя */
+  const { currentUser } = useContext(CurrentUserContext);
 
   function renderLinksList(list) {
     return list.map((item) => (
@@ -17,12 +20,14 @@ function Navigation() {
   return (
     <nav>
       <ul className={s.list}>
-        {/* TODO Отображать список на основе текущего пользователя */}
-        {renderLinksList(navListForGuest)}
-        {/* TODO Заменить на Logout и отображать кнопку на основе текущего пользователя */}
-        <button className={s.button} type='button'>
-          Выход
-        </button>
+        {currentUser
+          ? renderLinksList(navListForUser)
+          : renderLinksList(navListForGuest)}
+        {currentUser && (
+          <li>
+            <Logout />
+          </li>
+        )}
       </ul>
     </nav>
   );

@@ -16,4 +16,16 @@ export const signIn = ({ email, password }) => {
   return false;
 };
 
-/* TODO Добавить logout и checkAuth */
+export const logout = () => {
+  localStorage.removeItem('email');
+  localStorage.removeItem('password');
+};
+
+// CHECK AUTHORIZATION
+export const checkAuth = (cb) => {
+  const emailLS = loadDataFromLS('email');
+  const passwordLS = loadDataFromLS('password');
+  if (emailLS && passwordLS) {
+    cb({ email: emailLS, password: passwordLS });
+  }
+};

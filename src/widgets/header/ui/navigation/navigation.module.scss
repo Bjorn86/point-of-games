@@ -9,13 +9,3 @@
   padding: 0;
   list-style: none;
 }
-
-/* TODO Удалить после добавления Logout */
-.button {
-  padding: 0;
-  border: none;
-  @include font-main($textM, $color-blue, 400);
-  background-color: transparent;
-  cursor: pointer;
-  @include hover;
-}
