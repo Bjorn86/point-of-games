@@ -1,5 +1,6 @@
 import { createSlice, createSelector } from '@reduxjs/toolkit';
 import { registerUser } from 'features/auth/register/model/register-user';
+import { logoutUser } from 'features/auth/logout/model/logout-user';
 import { loginUser } from 'features/auth/login/model/login-user';
 
 const initialState = {
@@ -8,6 +9,10 @@ const initialState = {
     error: null,
   },
   login: {
+    isLoading: false,
+    error: null,
+  },
+  logout: {
     isLoading: false,
     error: null,
   },
@@ -39,6 +44,17 @@ export const authSlice = createSlice({
     });
     builder.addCase(loginUser.fulfilled, (state) => {
       state.login.isLoading = false;
+    });
+    builder.addCase(logoutUser.pending, (state) => {
+      state.logout.isLoading = true;
+      state.logout.error = null;
+    });
+    builder.addCase(logoutUser.rejected, (state, action) => {
+      state.logout.isLoading = false;
+      state.logout.error = action.payload || action.meta.error;
+    });
+    builder.addCase(logoutUser.fulfilled, (state) => {
+      state.logout.isLoading = false;
     });
   },
 });
