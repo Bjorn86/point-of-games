@@ -12,12 +12,15 @@ export const CurrentUserProvider = ({ children }) => {
   );
 
   useEffect(() => {
-    const unsubscribe = checkAuth((user) => {
-      setCurrentUser(user);
-      setIsLoading(false);
-    });
+    const unsubscribe = () =>
+      checkAuth((user) => {
+        setCurrentUser(user);
+        setIsLoading(false);
+      });
 
-    return unsubscribe;
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   return (
