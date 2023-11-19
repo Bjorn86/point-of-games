@@ -1,10 +1,16 @@
-import { memo } from 'react';
+import { Navigate } from 'react-router-dom';
+import { useContext, memo } from 'react';
 import { RegisterForm } from 'features/auth/register';
 import { AuthSection } from 'widgets/auth-section';
+import { CurrentUserContext } from 'app/contexts';
+import { paths } from 'shared/routing/paths';
 
 function Register() {
-  /* TODO Добавить переход на главную в зависимости от текущего пользователя */
-  return (
+  const { currentUser } = useContext(CurrentUserContext);
+
+  return currentUser ? (
+    <Navigate to={paths.home} replace />
+  ) : (
     <AuthSection title='Регистрация'>
       <RegisterForm />
     </AuthSection>
