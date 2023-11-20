@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import * as api from 'shared/api';
+import { consoleListenerMiddleware } from './console-listener-middleware';
 import { rootReducer } from './root-reducer';
 
 export const store = configureStore({
@@ -18,5 +19,5 @@ export const store = configureStore({
           '@@auth/login/fulfilled',
         ],
       },
-    }),
+    }).concat(consoleListenerMiddleware.middleware),
 });
