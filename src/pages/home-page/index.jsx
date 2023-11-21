@@ -1,11 +1,11 @@
-import s from './homePage.module.scss';
+import { CardsList } from 'features/cards/list';
+import { Section } from 'widgets/section';
 
 function HomePage() {
   return (
-    <>
-      <h1 className={s.title}>Test</h1>
-      <hr />
-    </>
+    <Section title='Latest releases in 30 days'>
+      <CardsList />
+    </Section>
   );
 }
 
