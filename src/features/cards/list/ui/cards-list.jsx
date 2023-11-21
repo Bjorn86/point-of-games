@@ -1,3 +1,4 @@
+import { ErrorBoundary } from 'react-error-boundary';
 import clsx from 'clsx';
 import { useGetLatestGamesQuery } from 'entities/cards';
 import { useTheme } from 'shared/lib/use-theme';
@@ -10,13 +11,15 @@ function CardsList() {
 
   return (
     <ul className={s.list}>
-      {data?.map((card) => (
-        <li
-          className={clsx(s.item, { [s.itemDark]: theme === 'dark' })}
-          key={card.id}
-        >
-          <Card {...card} />
-        </li>
+      {data.map((card) => (
+        <ErrorBoundary key={card.id}>
+          <li
+            className={clsx(s.item, { [s.itemDark]: theme === 'dark' })}
+            key={card.id}
+          >
+            <Card {...card} />
+          </li>
+        </ErrorBoundary>
       ))}
     </ul>
   );
