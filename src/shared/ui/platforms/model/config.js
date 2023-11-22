@@ -1,11 +1,11 @@
-import { ReactComponent as Android } from '../assets/icons/android.svg';
-import { ReactComponent as Apple } from '../assets/icons/apple.svg';
-import { ReactComponent as IOS } from '../assets/icons/ios.svg';
-import { ReactComponent as Linux } from '../assets/icons/linux.svg';
-import { ReactComponent as Nintendo } from '../assets/icons/nintendo.svg';
-import { ReactComponent as Playstation } from '../assets/icons/playstation.svg';
-import { ReactComponent as PC } from '../assets/icons/windows.svg';
-import { ReactComponent as Xbox } from '../assets/icons/xbox.svg';
+import { ReactComponent as Android } from '../../assets/icons/android.svg';
+import { ReactComponent as Apple } from '../../assets/icons/apple.svg';
+import { ReactComponent as IOS } from '../../assets/icons/ios.svg';
+import { ReactComponent as Linux } from '../../assets/icons/linux.svg';
+import { ReactComponent as Nintendo } from '../../assets/icons/nintendo.svg';
+import { ReactComponent as Playstation } from '../../assets/icons/playstation.svg';
+import { ReactComponent as PC } from '../../assets/icons/windows.svg';
+import { ReactComponent as Xbox } from '../../assets/icons/xbox.svg';
 
 export const platformsLogo = [
   {

@@ -1,4 +1,2 @@
-import LoginForm from './ui/login-form/login-form';
-import { loginUser } from './model/login-user';
-
-export { LoginForm, loginUser };
+export { LoginForm } from './ui/login-form/login-form';
+export { loginUser } from './model/login-user';

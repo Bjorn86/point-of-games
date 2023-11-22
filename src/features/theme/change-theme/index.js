@@ -1,3 +1,1 @@
-import ChangeTheme from './ui/change-theme';
-
-export { ChangeTheme };
+export { ChangeTheme } from './ui/change-theme';

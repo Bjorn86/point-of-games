@@ -1,13 +1,17 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import clsx from 'clsx';
 import { memo } from 'react';
 import s from './header-link.module.scss';
 
 function HeaderLink({ ...props }) {
   return (
-    <Link to={props.href} className={s.link}>
+    <NavLink
+      to={props.href}
+      className={({ isActive }) => clsx(s.link, { [s.linkActive]: isActive })}
+    >
       {props.text}
-    </Link>
+    </NavLink>
   );
 }
 

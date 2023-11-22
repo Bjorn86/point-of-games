@@ -1,10 +1,10 @@
+import { ReactComponent as MoonIcon } from 'shared/ui/assets/icons/moon.svg';
+import { ReactComponent as SunIcon } from 'shared/ui/assets/icons/sun.svg';
 import { useToggleTheme } from 'features/theme/lib/use-toggle-theme';
 import { useTheme } from 'shared/lib/use-theme';
-import { ReactComponent as SunIcon } from 'shared/ui/assets/icons/sun.svg';
-import { ReactComponent as MoonIcon } from 'shared/ui/assets/icons/moon.svg';
-import Button from 'shared/ui/button';
+import Button from 'shared/ui/button/button';
 
-function ChangeTheme() {
+export function ChangeTheme() {
   const handleToggleTheme = useToggleTheme();
   const theme = useTheme();
 
@@ -13,11 +13,11 @@ function ChangeTheme() {
       view='rounded'
       content={theme === 'dark' ? <MoonIcon /> : <SunIcon />}
       alt={
-        theme === 'dark' ? 'Сменить тему на светлую' : 'Сменить тему на темную'
+        theme === 'dark'
+          ? 'Change the theme to light'
+          : 'Change the theme to dark'
       }
       onClick={handleToggleTheme}
     />
   );
 }
-
-export default ChangeTheme;

@@ -1,8 +1,8 @@
 export const messages = {
   welcome:
-    'Добро пожаловать в консоль управления приложением Hearthstone Wiki!\nДля отображения списка доступных команд введите: tavern("/help"). Обратите внимание, что все команды нужно передавать в виде строки',
-  help: 'Список доступных команд:\n- /signup [email] [password] - Регистрация в приложении. Email и пароль должны быть записаны через пробел и указаны внутри квадратных скобок\n- /signin [email] [password] - Вход в приложение. Email и пароль должны быть записаны через пробел и указаны внутри квадратных скобок`',
-  auth: 'Пожалуйста введите свой email и пароль',
-  goodbye: 'До скорой встречи!',
-  notFound: 'Такой команды не существует',
+    'Welcome to the Point of Games application management console!\nTo display a list of available commands, type: point("/help"). Note that all commands must be passed as a string',
+  help: 'List of available commands:\n- /signup [email] [password] - Registration in the application. Email and password must be spaced and listed inside square brackets\n- /signin [email] [password] - Logging in to the application. Email and password must be spaced and listed inside square brackets\n- /logout - Exiting the application',
+  auth: 'Please enter your email and password',
+  goodbye: 'See you soon!',
+  notFound: 'There is no such command',
 };

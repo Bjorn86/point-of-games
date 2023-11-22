@@ -1,11 +1,11 @@
 import { useCallback } from 'react';
 import { userValidationSchema } from 'shared/model/user-validation-schema';
 import { useAuth } from 'features/auth/lib/use-auth';
-import Input from 'shared/ui/input';
-import Form from 'shared/ui/form';
-import Info from 'shared/ui/info';
+import Input from 'shared/ui/input/input';
+import Form from 'shared/ui/form/form';
+import Info from 'shared/ui/info/info';
 
-function LoginForm() {
+export function LoginForm() {
   const { isLoginLoading, loginError, handleAction } = useAuth();
 
   const handleSubmit = useCallback(
@@ -20,7 +20,7 @@ function LoginForm() {
       <Form
         formName='login'
         onSubmit={handleSubmit}
-        buttonText='Войти'
+        buttonText='Sign in'
         validationSchema={userValidationSchema}
         isDisabled={isLoginLoading}
       >
@@ -35,7 +35,7 @@ function LoginForm() {
           inputId='password'
           inputType='password'
           formName='login'
-          placeholder='Пароль'
+          placeholder='Password'
           isDisabled={isLoginLoading}
           withButton
         />
@@ -44,5 +44,3 @@ function LoginForm() {
     </>
   );
 }
-
-export default LoginForm;

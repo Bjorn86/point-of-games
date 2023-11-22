@@ -1,3 +1,1 @@
-import AuthSection from './ui';
-
-export { AuthSection };
+export { AuthSection } from './ui/auth-section';

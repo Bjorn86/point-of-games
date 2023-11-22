@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { ReactComponent as EyeSlashIcon } from 'shared/ui/assets/icons/eye-slash.svg';
 import { ReactComponent as EyeIcon } from 'shared/ui/assets/icons/eye.svg';
 import { useTheme } from 'shared/lib/use-theme';
-import Button from 'shared/ui/button';
+import Button from 'shared/ui/button/button';
 import s from './input.module.scss';
 
 function Input({ ...props }) {
@@ -84,7 +84,7 @@ function Input({ ...props }) {
         <Button
           view='inInput'
           onClick={handleButtonClick}
-          alt={isPasswordVisible ? 'Скрыть пароль' : 'Показать пароль'}
+          alt={isPasswordVisible ? 'Hide password' : 'Show password'}
           content={handleButtonIcon()}
         />
       )}

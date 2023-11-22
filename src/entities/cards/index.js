@@ -1,3 +1,1 @@
-import { cardsApi, useGetLatestGamesQuery } from './model/cards-api';
-
-export { cardsApi, useGetLatestGamesQuery };
+export { cardsApi, useGetLatestGamesQuery } from './model/cards-api';

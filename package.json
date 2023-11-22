@@ -1,15 +1,15 @@
 {
-  "name": "hearthstone-wiki",
+  "name": "point-of-games",
   "version": "0.1.0",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Bjorn86/hearthstone-wiki.git"
+    "url": "git+https://github.com/Bjorn86/point-of-games.git"
   },
   "bugs": {
-    "url": "https://github.com/Bjorn86/hearthstone-wiki/issues"
+    "url": "https://github.com/Bjorn86/point-of-games/issues"
   },
-  "homepage": "https://bjorn86.github.io/hearthstone-wiki/",
+  "homepage": "https://bjorn86.github.io/point-of-games/",
   "author": "Danila Legkobytov <legkobytov-danila@yandex.ru>",
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",

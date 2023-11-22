@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useTheme } from 'shared/lib/use-theme';
 import s from './preloader.module.scss';
 
-function Preloader() {
+export function Preloader() {
   const theme = useTheme();
 
   return (
@@ -11,5 +11,3 @@ function Preloader() {
     />
   );
 }
-
-export default Preloader;

@@ -1,11 +1,11 @@
 import clsx from 'clsx';
 import { ChangeTheme } from 'features/theme/change-theme';
 import { useTheme } from 'shared/lib/use-theme';
-import Navigation from './navigation';
+import Navigation from './navigation/navigation';
 import s from './header.module.scss';
-import Logo from './logo';
+import Logo from './logo/logo';
 
-function Header() {
+export function Header() {
   const theme = useTheme();
 
   return (
@@ -20,5 +20,3 @@ function Header() {
     </header>
   );
 }
-
-export default Header;

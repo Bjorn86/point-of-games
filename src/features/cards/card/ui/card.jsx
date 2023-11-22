@@ -5,11 +5,11 @@ import clsx from 'clsx';
 import { ReactComponent as Bookmark } from 'shared/ui/assets/icons/bookmark.svg';
 import { ReactComponent as Share } from 'shared/ui/assets/icons/share.svg';
 import { useTheme } from 'shared/lib/use-theme';
-import Platforms from 'shared/ui/platforms';
-import Release from 'shared/ui/release';
-import Button from 'shared/ui/button';
-import Genres from 'shared/ui/genres';
-import Score from 'shared/ui/score';
+import Platforms from 'shared/ui/platforms/platforms';
+import Release from 'shared/ui/release/release';
+import Button from 'shared/ui/button/button';
+import Genres from 'shared/ui/genres/genres';
+import Score from 'shared/ui/score/score';
 import s from './card.module.scss';
 
 function Card({ ...props }) {

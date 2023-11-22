@@ -5,7 +5,7 @@ import { useTheme } from 'shared/lib/use-theme';
 import { Card } from 'features/cards/card';
 import s from './cards-list.module.scss';
 
-function CardsList() {
+export function CardsList() {
   const { data } = useGetLatestGamesQuery();
   const theme = useTheme();
 
@@ -24,5 +24,3 @@ function CardsList() {
     </ul>
   );
 }
-
-export default CardsList;

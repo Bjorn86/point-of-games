@@ -2,15 +2,17 @@ import { Routes, Route } from 'react-router-dom';
 import { lazy, useContext } from 'react';
 import { CurrentUserContext } from 'app/contexts';
 import { Preloader } from 'widgets/preloader';
-import { paths } from 'shared/routing/paths';
+import { paths } from 'shared/model/paths-config';
 import { useGetLatestGamesQuery } from 'entities/cards';
 
-const BaseLayout = lazy(() => import('widgets/layouts/base-layout'));
-const Register = lazy(() => import('./register'));
-const HomePage = lazy(() => import('./home-page'));
-const Login = lazy(() => import('./login'));
+const BaseLayout = lazy(() =>
+  import('widgets/layouts/base-layout/base-layout'),
+);
+const Register = lazy(() => import('../register/register'));
+const HomePage = lazy(() => import('../home-page/home-page'));
+const Login = lazy(() => import('../login/login'));
 
-function Routing() {
+export function Routing() {
   const { isLoading: isUserLoading } = useContext(CurrentUserContext);
   const { isLoading: isDataLoading } = useGetLatestGamesQuery();
 
@@ -26,5 +28,3 @@ function Routing() {
     </Routes>
   );
 }
-
-export default Routing;

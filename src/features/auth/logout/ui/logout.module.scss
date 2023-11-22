@@ -4,7 +4,7 @@
 .button {
   padding: 0;
   border: none;
-  @include font-main($textM, $color-blue, 400);
+  @include font-main($textM, $color-light-blue, 400);
   background-color: transparent;
   cursor: pointer;
   @include hover;

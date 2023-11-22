@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
+import { paths } from 'shared/model/paths-config';
 import { useTheme } from 'shared/lib/use-theme';
-import { paths } from 'shared/routing/paths';
 import s from './logo.module.scss';
 
 function Logo() {
@@ -12,7 +12,7 @@ function Logo() {
       to={paths.home}
       className={clsx(s.logo, { [s.logoDark]: theme === 'dark' })}
     >
-      Hearthstone Wiki
+      Point of Games
     </Link>
   );
 }

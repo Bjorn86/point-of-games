@@ -1,7 +1,7 @@
 import { ErrorBoundary } from 'react-error-boundary';
 import { CardsList } from 'features/cards/list';
 import { Section } from 'widgets/section';
-import Fallback from 'shared/ui/fallback';
+import Fallback from 'shared/ui/fallback/fallback';
 
 function HomePage() {
   return (
