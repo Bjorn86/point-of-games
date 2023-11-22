@@ -1,0 +1,11 @@
+@import 'src/app/styles/mixins';
+@import 'src/app/styles/variables';
+
+.genres {
+  margin: 10px 0;
+  @include font-main($textS, $color-grey, 500);
+}
+
+.genresDark {
+  color: $color-white;
+}

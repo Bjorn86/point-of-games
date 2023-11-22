@@ -1,0 +1,51 @@
+@import 'src/app/styles/mixins';
+@import 'src/app/styles/variables';
+
+.button {
+  padding: 0;
+  cursor: pointer;
+}
+
+.rounded {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.4s ease;
+  &:hover {
+    background-color: $color-light-blue;
+  }
+}
+
+.inInput {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 40px;
+  right: 16px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  @include hover;
+}
+
+.withText {
+  width: 100%;
+  padding: 10px 16px;
+  background-color: $color-dark-violet;
+  border: none;
+  border-radius: 8px;
+  @include font-main($textL, $color-white, 500);
+  transition: background-color 0.4s ease;
+  &:hover {
+    background-color: $color-light-blue;
+  }
+  &:disabled {
+    background-color: $color-grey;
+  }
+}

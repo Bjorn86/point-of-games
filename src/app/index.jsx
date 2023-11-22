@@ -1,14 +1,14 @@
-// IMPORT COMPONENTS
 import { Routing } from 'pages';
-
-// IMPORT PROVIDERS
+import { commands } from 'features/console/lib/commands';
+import { point } from 'features/console';
 import { withProviders } from './providers';
-
-// IMPORT STYLES
 import s from './app.module.scss';
+import { store } from './store';
 import './index.scss';
 
-// APP CORE COMPONENT
+window.point = point(store.dispatch);
+window.point(commands.init);
+
 function App() {
   return (
     <div className={s.container}>

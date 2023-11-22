@@ -1,0 +1,45 @@
+@import 'src/app/styles/mixins';
+@import 'src/app/styles/variables';
+
+.section {
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 40px;
+  box-sizing: border-box;
+  border-radius: 12px;
+}
+
+.title {
+  margin: 0 0 20px;
+  @include font-main($textXL, $color-black, 700);
+}
+
+.titleDark {
+  color: $color-white;
+}
+
+.text {
+  margin: 20px 0 0;
+  @include font-main($textM, $color-light-grey, 400);
+}
+
+.link {
+  color: $color-light-blue;
+  text-decoration: none;
+  @include hover;
+}

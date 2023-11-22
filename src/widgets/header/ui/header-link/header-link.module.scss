@@ -1,0 +1,15 @@
+@import 'src/app/styles/mixins';
+@import 'src/app/styles/variables';
+
+.link {
+  padding-bottom: 5px;
+  @include font-main($textM, $color-light-blue, 400);
+  text-decoration: none;
+  @include hover;
+}
+
+.linkActive {
+  background-image: url('../../../../shared/ui/assets/icons/line-dot.svg');
+  background-repeat: no-repeat;
+  background-position: bottom center;
+}

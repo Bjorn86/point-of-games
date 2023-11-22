@@ -1,0 +1,11 @@
+@import 'src/app/styles/mixins';
+@import 'src/app/styles/variables';
+
+.release {
+  margin: 0;
+  @include font-main($textS, $color-grey, 500);
+}
+
+.releaseDark {
+  color: $color-white;
+}

@@ -87,3 +87,13 @@
   font-weight: 900;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Tilt Neon';
+  font-display: swap;
+  src:
+    url('../../shared/ui/assets/fonts/TiltNeon-Regular.woff2') format('woff2'),
+    url('../../shared/ui/assets/fonts/TiltNeon-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
