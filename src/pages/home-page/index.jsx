@@ -1,11 +1,15 @@
-import s from './homePage.module.scss';
+import { ErrorBoundary } from 'react-error-boundary';
+import { CardsList } from 'features/cards/list';
+import { Section } from 'widgets/section';
+import Fallback from 'shared/ui/fallback';
 
 function HomePage() {
   return (
-    <>
-      <h1 className={s.title}>Test</h1>
-      <hr />
-    </>
+    <Section title='Latest releases in 30 days'>
+      <ErrorBoundary FallbackComponent={Fallback}>
+        <CardsList />
+      </ErrorBoundary>
+    </Section>
   );
 }
 

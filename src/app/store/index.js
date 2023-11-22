@@ -1,5 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { cardsApi } from 'entities/cards';
 import * as api from 'shared/api';
+import { modifyCardsData } from '../../features/cards/model/modify-cards-data';
 import { consoleListenerMiddleware } from './console-listener-middleware';
 import { rootReducer } from './root-reducer';
 
@@ -19,5 +21,8 @@ export const store = configureStore({
           '@@auth/login/fulfilled',
         ],
       },
-    }).concat(consoleListenerMiddleware.middleware),
+    })
+      .prepend(consoleListenerMiddleware.middleware)
+      .concat(cardsApi.middleware)
+      .concat(modifyCardsData),
 });

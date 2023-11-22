@@ -1,6 +1,0 @@
-@import 'src/app/styles/mixins';
-@import 'src/app/styles/variables';
-
-.title {
-  @include font-main($textL, #000, 700);
-}

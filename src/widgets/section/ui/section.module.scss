@@ -1,0 +1,18 @@
+@import 'src/app/styles/mixins';
+@import 'src/app/styles/variables';
+
+.section {
+  max-width: $base-width;
+  box-sizing: border-box;
+  padding: 40px 20px;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 0 0 20px 20px;
+  @include font-main($textXL, $color-black, 700);
+}
+
+.titleDark {
+  color: $color-white;
+}
