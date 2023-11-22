@@ -1,3 +1,1 @@
-import Preloader from './ui';
-
-export { Preloader };
+export { Preloader } from './ui/preloader';

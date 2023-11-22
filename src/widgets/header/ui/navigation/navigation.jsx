@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { CurrentUserContext } from 'app/contexts';
 import { Logout } from 'features/auth/logout';
-import { navListForGuest, navListForUser } from './config';
-import HeaderLink from '../header-link';
+import { navListForGuest, navListForUser } from './model/config';
+import HeaderLink from '../header-link/header-link';
 import s from './navigation.module.scss';
 
 // NAVIGATION COMPONENT

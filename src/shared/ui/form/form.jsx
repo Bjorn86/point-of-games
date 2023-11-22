@@ -2,7 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Children, cloneElement, memo } from 'react';
 import { useForm } from 'react-hook-form';
 import PropTypes from 'prop-types';
-import Button from 'shared/ui/button';
+import Button from 'shared/ui/button/button';
 import s from './form.module.scss';
 
 function Form({ ...props }) {

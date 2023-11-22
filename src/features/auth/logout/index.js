@@ -1,4 +1,2 @@
-import Logout from './ui/logout';
-import { logoutUser } from './model/logout-user';
-
-export { Logout, logoutUser };
+export { Logout } from './ui/logout';
+export { logoutUser } from './model/logout-user';

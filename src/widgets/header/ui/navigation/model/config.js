@@ -1,23 +1,23 @@
-import { paths } from 'shared/routing/paths';
+import { paths } from 'shared/model/paths-config';
 
 export const navListForUser = [
   {
-    text: 'Избранное',
+    text: 'Favorites',
     href: paths.favorites,
   },
   {
-    text: 'История',
+    text: 'History',
     href: paths.history,
   },
 ];
 
 export const navListForGuest = [
   {
-    text: 'Вход',
+    text: 'Login',
     href: paths.login,
   },
   {
-    text: 'Регистрация',
+    text: 'Registration',
     href: paths.registration,
   },
 ];

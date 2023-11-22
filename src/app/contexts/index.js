@@ -1,3 +1,1 @@
-import { createContext } from 'react';
-
-export const CurrentUserContext = createContext();
+export { CurrentUserContext } from './current-user';

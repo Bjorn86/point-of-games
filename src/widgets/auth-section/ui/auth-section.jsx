@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { useTheme } from 'shared/lib/use-theme';
-import { paths } from 'shared/routing/paths';
+import { paths } from 'shared/model/paths-config';
 import s from './auth-section.module.scss';
 
-function AuthSection({ ...props }) {
+export function AuthSection({ ...props }) {
   const theme = useTheme();
 
   return (
@@ -34,8 +34,6 @@ function AuthSection({ ...props }) {
     </section>
   );
 }
-
-export default AuthSection;
 
 AuthSection.propTypes = {
   title: PropTypes.string,

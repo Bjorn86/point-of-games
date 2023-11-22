@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { memo } from 'react';
 import { useTheme } from 'shared/lib/use-theme';
-import { platformsLogo } from './config';
+import { platformsLogo } from './model/config';
 import s from './platforms.module.scss';
 
 function Platforms({ platforms }) {
