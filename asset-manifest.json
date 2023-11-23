@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/point-of-games/static/css/main.07103a33.css",
-    "main.js": "/point-of-games/static/js/main.c29ed531.js",
-    "static/css/615.4232c1b9.chunk.css": "/point-of-games/static/css/615.4232c1b9.chunk.css",
-    "static/js/615.45521c99.chunk.js": "/point-of-games/static/js/615.45521c99.chunk.js",
-    "static/css/421.fb5c957f.chunk.css": "/point-of-games/static/css/421.fb5c957f.chunk.css",
-    "static/js/421.0a66437c.chunk.js": "/point-of-games/static/js/421.0a66437c.chunk.js",
-    "static/css/96.6a3dc289.chunk.css": "/point-of-games/static/css/96.6a3dc289.chunk.css",
-    "static/js/96.41461f97.chunk.js": "/point-of-games/static/js/96.41461f97.chunk.js",
-    "static/css/889.fb5c957f.chunk.css": "/point-of-games/static/css/889.fb5c957f.chunk.css",
-    "static/js/889.0e21bd9f.chunk.js": "/point-of-games/static/js/889.0e21bd9f.chunk.js",
+    "main.css": "/point-of-games/static/css/main.6ddc571e.css",
+    "main.js": "/point-of-games/static/js/main.bb450fce.js",
+    "static/css/615.e6b0b777.chunk.css": "/point-of-games/static/css/615.e6b0b777.chunk.css",
+    "static/js/615.a4109934.chunk.js": "/point-of-games/static/js/615.a4109934.chunk.js",
+    "static/css/421.1d5574fa.chunk.css": "/point-of-games/static/css/421.1d5574fa.chunk.css",
+    "static/js/421.281f89ef.chunk.js": "/point-of-games/static/js/421.281f89ef.chunk.js",
+    "static/css/96.c2957fbe.chunk.css": "/point-of-games/static/css/96.c2957fbe.chunk.css",
+    "static/js/96.756f76c4.chunk.js": "/point-of-games/static/js/96.756f76c4.chunk.js",
+    "static/css/889.1d5574fa.chunk.css": "/point-of-games/static/css/889.1d5574fa.chunk.css",
+    "static/js/889.9b304a80.chunk.js": "/point-of-games/static/js/889.9b304a80.chunk.js",
     "static/media/TiltNeon-Regular.woff": "/point-of-games/static/media/TiltNeon-Regular.35c070c9cb0c0f4216e9.woff",
     "static/media/TiltNeon-Regular.woff2": "/point-of-games/static/media/TiltNeon-Regular.c45f6f052e4b4baa77ba.woff2",
     "static/media/Jost-ExtraBold.woff": "/point-of-games/static/media/Jost-ExtraBold.21751e0b79c82de505ef.woff",
@@ -48,19 +48,19 @@
     "static/media/windows.svg": "/point-of-games/static/media/windows.2a9b3f6ed1215a808d7c612e4ecf1738.svg",
     "static/media/line-dot.svg": "/point-of-games/static/media/line-dot.bd3378dc87678cd807a3.svg",
     "static/media/nintendo.svg": "/point-of-games/static/media/nintendo.9e80ca546f540b35f49fc2dc17d29219.svg",
-    "main.07103a33.css.map": "/point-of-games/static/css/main.07103a33.css.map",
-    "main.c29ed531.js.map": "/point-of-games/static/js/main.c29ed531.js.map",
-    "615.4232c1b9.chunk.css.map": "/point-of-games/static/css/615.4232c1b9.chunk.css.map",
-    "615.45521c99.chunk.js.map": "/point-of-games/static/js/615.45521c99.chunk.js.map",
-    "421.fb5c957f.chunk.css.map": "/point-of-games/static/css/421.fb5c957f.chunk.css.map",
-    "421.0a66437c.chunk.js.map": "/point-of-games/static/js/421.0a66437c.chunk.js.map",
-    "96.6a3dc289.chunk.css.map": "/point-of-games/static/css/96.6a3dc289.chunk.css.map",
-    "96.41461f97.chunk.js.map": "/point-of-games/static/js/96.41461f97.chunk.js.map",
-    "889.fb5c957f.chunk.css.map": "/point-of-games/static/css/889.fb5c957f.chunk.css.map",
-    "889.0e21bd9f.chunk.js.map": "/point-of-games/static/js/889.0e21bd9f.chunk.js.map"
+    "main.6ddc571e.css.map": "/point-of-games/static/css/main.6ddc571e.css.map",
+    "main.bb450fce.js.map": "/point-of-games/static/js/main.bb450fce.js.map",
+    "615.e6b0b777.chunk.css.map": "/point-of-games/static/css/615.e6b0b777.chunk.css.map",
+    "615.a4109934.chunk.js.map": "/point-of-games/static/js/615.a4109934.chunk.js.map",
+    "421.1d5574fa.chunk.css.map": "/point-of-games/static/css/421.1d5574fa.chunk.css.map",
+    "421.281f89ef.chunk.js.map": "/point-of-games/static/js/421.281f89ef.chunk.js.map",
+    "96.c2957fbe.chunk.css.map": "/point-of-games/static/css/96.c2957fbe.chunk.css.map",
+    "96.756f76c4.chunk.js.map": "/point-of-games/static/js/96.756f76c4.chunk.js.map",
+    "889.1d5574fa.chunk.css.map": "/point-of-games/static/css/889.1d5574fa.chunk.css.map",
+    "889.9b304a80.chunk.js.map": "/point-of-games/static/js/889.9b304a80.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.07103a33.css",
-    "static/js/main.c29ed531.js"
+    "static/css/main.6ddc571e.css",
+    "static/js/main.bb450fce.js"
   ]
 }
