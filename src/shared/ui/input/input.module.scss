@@ -28,6 +28,10 @@
   background-color: transparent;
   @include font-main($textM, $color-black, 500);
   transition: border-color 0.4s ease;
+  &[type='search']::-webkit-search-cancel-button {
+    display: none;
+    appearance: none;
+  }
   &::placeholder {
     @include font-main($textM, $color-black, 400);
   }

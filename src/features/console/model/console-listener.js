@@ -4,8 +4,9 @@ import { commands } from 'features/console/lib/commands';
 import {
   auth,
   logout,
-  showStart,
+  search,
   showHelp,
+  showStart,
   showNotFound,
 } from 'features/console/lib/utils';
 
@@ -33,6 +34,9 @@ startAppListening({
         break;
       case commands.logout:
         logout(dispatch);
+        break;
+      case commands.search:
+        search(params, dispatch);
         break;
       default:
         showNotFound();

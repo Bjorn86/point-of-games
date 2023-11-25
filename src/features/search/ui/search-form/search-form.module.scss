@@ -1,0 +1,17 @@
+@import 'src/app/styles/mixins';
+@import 'src/app/styles/variables';
+
+.form {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.button {
+  width: 130px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.label {
+  width: 1250px;
+}

@@ -1,30 +1,32 @@
 import { ErrorBoundary } from 'react-error-boundary';
-import { useGetLatestGamesQuery } from 'shared/api';
+import { useSearchParams } from 'react-router-dom';
 import Fallback from 'shared/ui/fallback/fallback';
+import { useSearchGamesQuery } from 'shared/api';
 import { CardsList } from 'features/cards/list';
 import { Preloader } from 'widgets/preloader';
 import { SearchForm } from 'features/search';
 import { Section } from 'widgets/section';
-import s from './home-page.module.scss';
+import s from './search-page.module.scss';
 
-function HomePage() {
-  const { data: latestGames, isLoading: isLatestGamesLoading } =
-    useGetLatestGamesQuery();
+function SearchPage() {
+  const [searchParams] = useSearchParams();
+  const searchQuery = searchParams.get('query');
+  const { data, isLoading } = useSearchGamesQuery(searchQuery);
 
-  return isLatestGamesLoading ? (
+  return isLoading ? (
     <Preloader />
   ) : (
     <>
       <Section label='Search' addSectionClass={s.search}>
         <SearchForm />
       </Section>
-      <Section title='Highest rated releases in the last 30 days'>
+      <Section title='Search results'>
         <ErrorBoundary FallbackComponent={Fallback}>
-          <CardsList data={latestGames} />
+          <CardsList data={data} />
         </ErrorBoundary>
       </Section>
     </>
   );
 }
 
-export default HomePage;
+export default SearchPage;

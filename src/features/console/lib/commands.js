@@ -4,4 +4,5 @@ export const commands = {
   login: '/signin',
   register: '/signup',
   logout: '/logout',
+  search: '/search',
 };

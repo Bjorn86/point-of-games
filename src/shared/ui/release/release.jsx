@@ -17,7 +17,7 @@ function Release({ releaseDate }) {
 
   return (
     <p className={clsx(s.release, { [s.releaseDark]: theme === 'dark' })}>
-      Release date: {formatDate()}
+      Release date: {releaseDate ? formatDate() : 'Unknown'}
     </p>
   );
 }
@@ -25,5 +25,9 @@ function Release({ releaseDate }) {
 export default memo(Release);
 
 Release.propTypes = {
-  releaseDate: PropTypes.string.isRequired,
+  releaseDate: PropTypes.string,
+};
+
+Release.defaultProps = {
+  releaseDate: null,
 };

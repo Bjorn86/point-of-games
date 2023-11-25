@@ -4,11 +4,10 @@
 .list {
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 440px);
+  justify-content: center;
+  gap: 30px 38px;
   list-style: none;
 }
 
