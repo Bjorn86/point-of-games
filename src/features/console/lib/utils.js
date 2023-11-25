@@ -2,6 +2,7 @@ import { userValidationSchema } from 'shared/model/user-validation-schema';
 import { registerUser } from 'features/auth/register';
 import { logoutUser } from 'features/auth/logout';
 import { loginUser } from 'features/auth/login';
+import { endpoints } from 'shared/api';
 import { COMMAND_REGEX, PARAMS_REGEX } from './constants';
 import { messages } from './messages';
 
@@ -52,6 +53,17 @@ export const logout = (dispatch) => {
     .unwrap()
     .then(() => console.log(messages.goodbye))
     .catch((e) => console.warn(e));
+};
+
+export const search = (params, dispatch) => {
+  if (params) {
+    dispatch(endpoints.searchGames.initiate(params))
+      .unwrap()
+      .then((res) => console.table(res))
+      .catch((e) => console.warn(e));
+  } else {
+    console.warn(messages.searchWarning);
+  }
 };
 
 export const showStart = () => {

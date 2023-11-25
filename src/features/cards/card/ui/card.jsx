@@ -17,7 +17,13 @@ function Card({ ...props }) {
 
   return (
     <div>
-      <img className={s.image} src={props.bgImage} alt={props.name} />
+      {props.bgImage ? (
+        <img className={s.image} src={props.bgImage} alt={props.name} />
+      ) : (
+        <p className={clsx(s.plug, { [s.plugDark]: theme === 'dark' })}>
+          No images yet
+        </p>
+      )}
       <div
         className={clsx(s.infoWrapper, {
           [s.infoWrapperDark]: theme === 'dark',
@@ -63,7 +69,7 @@ function Card({ ...props }) {
 export default memo(Card);
 
 Card.propTypes = {
-  bgImage: PropTypes.string.isRequired,
+  bgImage: PropTypes.string,
   name: PropTypes.string.isRequired,
   platforms: PropTypes.arrayOf(PropTypes.object).isRequired,
   metacritic: PropTypes.number,
@@ -74,6 +80,7 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
+  bgImage: null,
   metacritic: null,
   rating: null,
 };

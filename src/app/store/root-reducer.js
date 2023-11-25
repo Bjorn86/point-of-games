@@ -1,9 +1,9 @@
 import { themeReducer } from 'entities/theme';
 import { authReducer } from 'entities/auth';
-import { cardsApi } from 'entities/cards';
+import { rawgApi } from 'shared/api';
 
 export const rootReducer = {
   theme: themeReducer,
   auth: authReducer,
-  [cardsApi.reducerPath]: cardsApi.reducer,
+  [rawgApi.reducerPath]: rawgApi.reducer,
 };

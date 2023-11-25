@@ -27,6 +27,9 @@ function Input({ ...props }) {
 
   const handleFocus = () => {
     setLabelText(props.placeholder);
+    if (props.handleFocusExtension) {
+      props.handleFocusExtension();
+    }
   };
 
   const handleBlur = () => {
@@ -36,6 +39,9 @@ function Input({ ...props }) {
       setLabelText(props.placeholder);
     } else {
       setLabelText('');
+    }
+    if (props.handleBlurExtension) {
+      props.handleBlurExtension();
     }
     field.onBlur();
   };
@@ -60,7 +66,12 @@ function Input({ ...props }) {
   }, [props.label]);
 
   return (
-    <label className={s.wrapper} htmlFor={props.inputId}>
+    <label
+      className={clsx(s.wrapper, {
+        [props.addLabelClass]: props.addLabelClass,
+      })}
+      htmlFor={props.inputId}
+    >
       <span className={s.caption}>{labelText}</span>
       <input
         className={clsx(s.input, { [s.inputDark]: theme === 'dark' })}
@@ -96,6 +107,7 @@ function Input({ ...props }) {
 export default memo(Input);
 
 Input.propTypes = {
+  addLabelClass: PropTypes.string,
   inputId: PropTypes.string.isRequired,
   control: PropTypes.shape({}),
   label: PropTypes.string,
@@ -104,11 +116,16 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   isDisabled: PropTypes.bool.isRequired,
   withButton: PropTypes.bool,
+  handleBlurExtension: PropTypes.func,
+  handleFocusExtension: PropTypes.func,
 };
 
 Input.defaultProps = {
+  addLabelClass: null,
   control: {},
   label: '',
   placeholder: '',
   withButton: false,
+  handleBlurExtension: null,
+  handleFocusExtension: null,
 };
