@@ -6,4 +6,7 @@ export const commands = {
   logout: '/logout',
   search: '/search',
   showHistory: '/showHistory',
+  showFavorites: '/showFavorites',
+  addFavorite: '/addFavorite',
+  removeFavorite: '/removeFavorite',
 };

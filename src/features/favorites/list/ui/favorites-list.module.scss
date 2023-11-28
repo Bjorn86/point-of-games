@@ -1,0 +1,27 @@
+@import 'src/app/styles/mixins';
+@import 'src/app/styles/variables';
+
+.list {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 440px);
+  justify-content: center;
+  gap: 30px 38px;
+  list-style: none;
+}
+
+.item {
+  width: 440px;
+  border-radius: 15px;
+  overflow: hidden;
+  @include shadow-lt;
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.01);
+  }
+}
+
+.itemDark {
+  @include shadow-dt;
+}

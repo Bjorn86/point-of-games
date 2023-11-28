@@ -55,11 +55,24 @@ export const rawgApi = createApi({
         data: response.results,
       }),
     }),
+    getGameForFavorites: builder.query({
+      query: (id) => ({
+        url: `/games/${id}`,
+        params: {
+          key: process.env.REACT_APP_RAWG_API_KEY,
+        },
+      }),
+      transformResponse: (response) => ({
+        typeOfModification: 'gameForFavorites',
+        data: response,
+      }),
+    }),
   }),
 });
 
 export const {
   useSearchGamesForSuggestionsQuery,
+  useGetGameForFavoritesQuery,
   useGetLatestGamesQuery,
   useSearchGamesQuery,
   endpoints,

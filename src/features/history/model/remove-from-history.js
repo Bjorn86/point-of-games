@@ -1,14 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getHistory } from './get-history';
 
 export const removeFromHistory = createAsyncThunk(
   '@@history/remove',
-  async (query, { getState, dispatch, rejectWithValue, extra: { api } }) => {
+  async (query, { getState, rejectWithValue, extra: { api } }) => {
     const { user } = getState().user;
     if (user) {
       try {
-        await api.removeFromHistory(user, query);
-        return await dispatch(getHistory());
+        return await api.removeFromHistory(user, query);
       } catch (error) {
         return rejectWithValue(error.message);
       }

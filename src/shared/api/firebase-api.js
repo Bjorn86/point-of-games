@@ -30,21 +30,21 @@ export const checkAuth = (cb) => {
   });
 };
 
-export const createUserDB = (email) => {
-  setDoc(doc(db, 'users', email), {
-    email,
+export const createUserDB = (user) => {
+  setDoc(doc(db, 'users', user), {
+    user,
     favorites: [],
     history: [],
   });
 };
 
-export const getUserData = (email) => {
-  const userRef = doc(db, 'users', email);
+export const getUserData = (user) => {
+  const userRef = doc(db, 'users', user);
   return getDoc(userRef);
 };
 
-export const getUserHistory = async (email) => {
-  const userRef = doc(db, 'users', email);
+export const getUserHistory = async (user) => {
+  const userRef = doc(db, 'users', user);
   const docSnap = await getDoc(userRef);
   if (docSnap.exists()) {
     const { history } = docSnap.data();
@@ -53,16 +53,40 @@ export const getUserHistory = async (email) => {
   return [];
 };
 
-export const addToHistory = (email, query) => {
-  const userRef = doc(db, 'users', email);
+export const addToHistory = (user, query) => {
+  const userRef = doc(db, 'users', user);
   updateDoc(userRef, {
     history: arrayUnion(query),
   });
 };
 
-export const removeFromHistory = (email, query) => {
-  const userRef = doc(db, 'users', email);
+export const removeFromHistory = (user, query) => {
+  const userRef = doc(db, 'users', user);
   updateDoc(userRef, {
     history: arrayRemove(query),
+  });
+};
+
+export const getUserFavorites = async (user) => {
+  const userRef = doc(db, 'users', user);
+  const docSnap = await getDoc(userRef);
+  if (docSnap.exists()) {
+    const { favorites } = docSnap.data();
+    return favorites;
+  }
+  return [];
+};
+
+export const addToFavorites = (user, gameID) => {
+  const userRef = doc(db, 'users', user);
+  updateDoc(userRef, {
+    favorites: arrayUnion(gameID),
+  });
+};
+
+export const removeFromFavorites = (user, gameID) => {
+  const userRef = doc(db, 'users', user);
+  updateDoc(userRef, {
+    favorites: arrayRemove(gameID),
   });
 };

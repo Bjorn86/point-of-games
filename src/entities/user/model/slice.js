@@ -1,5 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { removeFromFavorites } from 'features/favorites/model/remove-from-favorites';
 import { removeFromHistory } from 'features/history/model/remove-from-history';
+import { addToFavorites } from 'features/favorites/model/add-to-favorites';
+import { getFavorites } from 'features/favorites/model/get-favorites';
 import { addToHistory } from 'features/history/model/add-to-history';
 import { createUserDB } from 'features/user/model/create-user-db';
 import { getHistory } from 'features/history/model/get-history';
@@ -27,6 +30,18 @@ const initialState = {
       error: null,
     },
     removeFromHistory: {
+      isLoading: false,
+      error: null,
+    },
+    getFavorites: {
+      isLoading: false,
+      error: null,
+    },
+    addToFavorites: {
+      isLoading: false,
+      error: null,
+    },
+    removeFromFavorites: {
       isLoading: false,
       error: null,
     },
@@ -98,9 +113,45 @@ export const userSlice = createSlice({
     builder.addCase(removeFromHistory.fulfilled, (state) => {
       state.meta.removeFromHistory.isLoading = false;
     });
+    builder.addCase(getFavorites.pending, (state) => {
+      state.meta.getFavorites.isLoading = true;
+      state.meta.getFavorites.error = null;
+    });
+    builder.addCase(getFavorites.rejected, (state, action) => {
+      state.meta.getFavorites.isLoading = false;
+      state.meta.getFavorites.error = action.payload || action.meta.error;
+    });
+    builder.addCase(getFavorites.fulfilled, (state, action) => {
+      state.favorites = action.payload;
+      state.meta.getFavorites.isLoading = false;
+    });
+    builder.addCase(addToFavorites.pending, (state) => {
+      state.meta.addToFavorites.isLoading = true;
+      state.meta.addToFavorites.error = null;
+    });
+    builder.addCase(addToFavorites.rejected, (state, action) => {
+      state.meta.addToFavorites.isLoading = false;
+      state.meta.addToFavorites.error = action.payload || action.meta.error;
+    });
+    builder.addCase(addToFavorites.fulfilled, (state) => {
+      state.meta.addToFavorites.isLoading = false;
+    });
+    builder.addCase(removeFromFavorites.pending, (state) => {
+      state.meta.removeFromFavorites.isLoading = true;
+      state.meta.removeFromFavorites.error = null;
+    });
+    builder.addCase(removeFromFavorites.rejected, (state, action) => {
+      state.meta.removeFromFavorites.isLoading = false;
+      state.meta.removeFromFavorites.error =
+        action.payload || action.meta.error;
+    });
+    builder.addCase(removeFromFavorites.fulfilled, (state) => {
+      state.meta.removeFromFavorites.isLoading = false;
+    });
   },
 });
 
 export const userReducer = userSlice.reducer;
 export const selectHistory = (state) => state.user.history;
+export const selectFavorites = (state) => state.user.favorites;
 export const selectIsUserLoading = (state) => state.user.meta.getUser.isLoading;

@@ -1,4 +1,7 @@
+import { removeFromFavorites as remove } from 'features/favorites/model/remove-from-favorites';
+import { addToFavorites as add } from 'features/favorites/model/add-to-favorites';
 import { userValidationSchema } from 'shared/model/user-validation-schema';
+import { getFavorites } from 'features/favorites/model/get-favorites';
 import { addToHistory } from 'features/history/model/add-to-history';
 import { getHistory } from 'features/history/model/get-history';
 import { registerUser } from 'features/auth/register';
@@ -69,10 +72,72 @@ export const search = (params, dispatch) => {
   }
 };
 
-export const showHistory = (dispatch) => {
-  dispatch(getHistory())
-    .then((res) => console.table(res.payload))
-    .catch((e) => console.warn(e));
+export const showHistory = (dispatch, user) => {
+  if (user) {
+    dispatch(getHistory())
+      .then((res) => console.table(res.payload))
+      .catch((e) => console.warn(e));
+  } else {
+    console.warn(messages.authWarning);
+  }
+};
+
+export const showFavorites = async (dispatch, user) => {
+  if (user) {
+    const favorites = await dispatch(getFavorites());
+    const res = [];
+    if (favorites.payload.length) {
+      await Promise.all(
+        favorites.payload.map(async (id) => {
+          try {
+            const data = await dispatch(
+              endpoints.getGameForFavorites.initiate(id),
+            ).unwrap();
+            res.push(data);
+          } catch (e) {
+            console.warn(e);
+          }
+        }),
+      );
+      console.table(res);
+    } else {
+      console.warn(messages.favoritesWarning);
+    }
+  } else {
+    console.warn(messages.authWarning);
+  }
+};
+
+export const addToFavorites = async (params, dispatch, user) => {
+  if (user) {
+    const id = Number(params[0]);
+    const favorites = await dispatch(getFavorites());
+    if (favorites.payload.includes(id)) {
+      console.warn(messages.alreadyFavorite);
+    } else {
+      dispatch(add(id))
+        .then(() => console.log(messages.successAddFavorite))
+        .catch((e) => console.warn(e));
+    }
+  } else {
+    console.warn(messages.authWarning);
+  }
+};
+
+export const removeFromFavorites = async (params, dispatch, user) => {
+  if (user) {
+    const id = Number(params[0]);
+    const favorites = await dispatch(getFavorites());
+    if (favorites.payload.includes(id)) {
+      dispatch(remove(id))
+        .then(() => console.log(messages.successRemoveFavorite))
+        .catch((e) => console.warn(e));
+    } else {
+      console.warn(messages.notFavorite);
+    }
+  } else {
+    console.warn(messages.authWarning);
+  }
 };
 
 export const showStart = () => {

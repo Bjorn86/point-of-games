@@ -1,1 +1,6 @@
-export { userReducer, selectHistory, selectIsUserLoading } from './model/slice';
+export {
+  userReducer,
+  selectHistory,
+  selectIsUserLoading,
+  selectFavorites,
+} from './model/slice';

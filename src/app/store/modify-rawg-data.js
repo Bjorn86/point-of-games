@@ -24,6 +24,18 @@ export const modifyRawgData = () => (next) => (action) => {
           rating: card.rating,
         }));
         break;
+      case 'gameForFavorites':
+        modifiedPayload = {
+          id: action.payload.data.id,
+          name: action.payload.data.name,
+          bgImage: action.payload.data.background_image,
+          platforms: action.payload.data.parent_platforms,
+          metacritic: action.payload.data.metacritic,
+          rating: action.payload.data.rating,
+          genres: action.payload.data.genres,
+          released: action.payload.data.released,
+        };
+        break;
       default:
         modifiedPayload = action.payload.data;
     }
