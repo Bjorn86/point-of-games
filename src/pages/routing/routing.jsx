@@ -8,8 +8,9 @@ import ProtectedRoute from '../providers/protected-route';
 const BaseLayout = lazy(() =>
   import('widgets/layouts/base-layout/base-layout'),
 );
-const SearchPage = lazy(() => import('../search-page/search-page'));
+const FavoritesPage = lazy(() => import('../favorites/favorites'));
 const HistoryPage = lazy(() => import('../history-page/history-page'));
+const SearchPage = lazy(() => import('../search-page/search-page'));
 const HomePage = lazy(() => import('../home-page/home-page'));
 const Register = lazy(() => import('../register/register'));
 const Login = lazy(() => import('../login/login'));
@@ -31,6 +32,14 @@ export function Routing() {
           element={
             <ProtectedRoute>
               <HistoryPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={paths.favorites}
+          element={
+            <ProtectedRoute>
+              <FavoritesPage />
             </ProtectedRoute>
           }
         />

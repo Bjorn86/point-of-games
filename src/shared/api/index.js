@@ -4,5 +4,6 @@ export {
   endpoints,
   useSearchGamesQuery,
   useGetLatestGamesQuery,
+  useGetGameForFavoritesQuery,
   useSearchGamesForSuggestionsQuery,
 } from './rawg-api';

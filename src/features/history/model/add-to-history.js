@@ -1,10 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { checkDuplicate } from '../lib/utils';
-import { getHistory } from './get-history';
 
 export const addToHistory = createAsyncThunk(
   '@@history/add',
-  async (query, { getState, dispatch, rejectWithValue, extra: { api } }) => {
+  async (query, { getState, rejectWithValue, extra: { api } }) => {
     const { user, history } = getState().user;
     const queryObj = {
       query,
@@ -12,8 +11,7 @@ export const addToHistory = createAsyncThunk(
     };
     if (user && checkDuplicate(history, queryObj)) {
       try {
-        await api.addToHistory(user, queryObj);
-        return await dispatch(getHistory());
+        return await api.addToHistory(user, queryObj);
       } catch (error) {
         return rejectWithValue(error.message);
       }

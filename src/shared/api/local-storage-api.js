@@ -29,42 +29,66 @@ export const checkAuth = (cb) => {
   }
 };
 
-export const createUserDB = (email) => {
+export const createUserDB = (user) => {
   saveDataToLS('user', {
-    email,
+    user,
     favorites: [],
     history: [],
   });
 };
 
-export const getUserData = (email) => {
-  const user = loadDataFromLS('user');
-  if (user && user.email === email) {
+export const getUserData = (user) => {
+  const savedUser = loadDataFromLS('user');
+  if (savedUser && savedUser.email === user) {
     return user;
   }
   return null;
 };
 
-export const getUserHistory = (email) => {
-  const user = loadDataFromLS('user');
-  if (user && user.email === email) {
+export const getUserHistory = (user) => {
+  const savedUser = loadDataFromLS('user');
+  if (savedUser && savedUser.email === user) {
     return user.history;
   }
   return null;
 };
 
-export const addToHistory = (email, query) => {
-  const user = loadDataFromLS('user');
-  if (user && user.email === email) {
-    user.history = [...query];
-    saveDataToLS('user', user);
+export const addToHistory = (user, query) => {
+  const savedUser = loadDataFromLS('user');
+  if (savedUser && savedUser.email === user) {
+    savedUser.history = [...query];
+    saveDataToLS('user', savedUser);
   }
 };
 
-export const removeFromHistory = (email, query) => {
-  const user = loadDataFromLS('user');
-  if (user && user.email === email) {
-    user.history = user.history.filter((q) => q !== query);
-    saveDataToLS('user', user);
+export const removeFromHistory = (user, query) => {
+  const savedUser = loadDataFromLS('user');
+  if (savedUser && savedUser.email === user) {
+    savedUser.history = savedUser.history.filter((q) => q !== query);
+    saveDataToLS('user', savedUser);
+  }
+};
+
+export const getUserFavorites = (user) => {
+  const savedUser = loadDataFromLS('user');
+  if (savedUser && savedUser.email === user) {
+    return savedUser.favorites;
+  }
+  return null;
+};
+
+export const addToFavorites = (user, gameID) => {
+  const savedUser = loadDataFromLS('user');
+  if (savedUser && savedUser.email === user) {
+    savedUser.favorites = [...savedUser.favorites, gameID];
+    saveDataToLS('user', savedUser);
+  }
+};
+
+export const removeFromFavorites = (user, gameID) => {
+  const savedUser = loadDataFromLS('user');
+  if (savedUser && savedUser.email === user) {
+    savedUser.favorites = savedUser.favorites.filter((id) => id !== gameID);
+    saveDataToLS('user', savedUser);
   }
 };

@@ -19,27 +19,42 @@ export const checkAuth = (cb) =>
     ? fb.checkAuth(cb)
     : ls.checkAuth(cb);
 
-export const createUserDB = (email) =>
+export const createUserDB = (user) =>
   process.env.REACT_APP_REMOTE_STORE === 'firebase'
-    ? fb.createUserDB(email)
-    : ls.createUserDB(email);
+    ? fb.createUserDB(user)
+    : ls.createUserDB(user);
 
-export const getUserData = (email) =>
+export const getUserData = (user) =>
   process.env.REACT_APP_REMOTE_STORE === 'firebase'
-    ? fb.getUserData(email)
-    : ls.getUserData(email);
+    ? fb.getUserData(user)
+    : ls.getUserData(user);
 
-export const getUserHistory = (email) =>
+export const getUserHistory = (user) =>
   process.env.REACT_APP_REMOTE_STORE === 'firebase'
-    ? fb.getUserHistory(email)
-    : ls.getUserHistory(email);
+    ? fb.getUserHistory(user)
+    : ls.getUserHistory(user);
 
-export const addToHistory = (email, query) =>
+export const addToHistory = (user, query) =>
   process.env.REACT_APP_REMOTE_STORE === 'firebase'
-    ? fb.addToHistory(email, query)
-    : ls.addToHistory(email, query);
+    ? fb.addToHistory(user, query)
+    : ls.addToHistory(user, query);
 
-export const removeFromHistory = (email, query) =>
+export const removeFromHistory = (user, query) =>
   process.env.REACT_APP_REMOTE_STORE === 'firebase'
-    ? fb.removeFromHistory(email, query)
-    : ls.removeFromHistory(email, query);
+    ? fb.removeFromHistory(user, query)
+    : ls.removeFromHistory(user, query);
+
+export const getUserFavorites = (user) =>
+  process.env.REACT_APP_REMOTE_STORE === 'firebase'
+    ? fb.getUserFavorites(user)
+    : ls.getUserFavorites(user);
+
+export const addToFavorites = (user, query) =>
+  process.env.REACT_APP_REMOTE_STORE === 'firebase'
+    ? fb.addToFavorites(user, query)
+    : ls.addToFavorites(user, query);
+
+export const removeFromFavorites = (user, query) =>
+  process.env.REACT_APP_REMOTE_STORE === 'firebase'
+    ? fb.removeFromFavorites(user, query)
+    : ls.removeFromFavorites(user, query);
