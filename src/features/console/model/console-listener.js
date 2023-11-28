@@ -7,6 +7,7 @@ import {
   search,
   showHelp,
   showStart,
+  showHistory,
   showNotFound,
 } from 'features/console/lib/utils';
 
@@ -37,6 +38,9 @@ startAppListening({
         break;
       case commands.search:
         search(params, dispatch);
+        break;
+      case commands.showHistory:
+        showHistory(dispatch);
         break;
       default:
         showNotFound();

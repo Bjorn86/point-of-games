@@ -18,3 +18,28 @@ export const checkAuth = (cb) =>
   process.env.REACT_APP_REMOTE_STORE === 'firebase'
     ? fb.checkAuth(cb)
     : ls.checkAuth(cb);
+
+export const createUserDB = (email) =>
+  process.env.REACT_APP_REMOTE_STORE === 'firebase'
+    ? fb.createUserDB(email)
+    : ls.createUserDB(email);
+
+export const getUserData = (email) =>
+  process.env.REACT_APP_REMOTE_STORE === 'firebase'
+    ? fb.getUserData(email)
+    : ls.getUserData(email);
+
+export const getUserHistory = (email) =>
+  process.env.REACT_APP_REMOTE_STORE === 'firebase'
+    ? fb.getUserHistory(email)
+    : ls.getUserHistory(email);
+
+export const addToHistory = (email, query) =>
+  process.env.REACT_APP_REMOTE_STORE === 'firebase'
+    ? fb.addToHistory(email, query)
+    : ls.addToHistory(email, query);
+
+export const removeFromHistory = (email, query) =>
+  process.env.REACT_APP_REMOTE_STORE === 'firebase'
+    ? fb.removeFromHistory(email, query)
+    : ls.removeFromHistory(email, query);

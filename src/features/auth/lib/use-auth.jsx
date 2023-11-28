@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { useCallback } from 'react';
 import { selectRegisterInfo, selectLoginInfo } from 'entities/auth';
+import { paths } from 'shared/model/paths-config';
 import { registerUser } from '../register/model/register-user';
 import { logoutUser } from '../logout/model/logout-user';
 import { loginUser } from '../login/model/login-user';
@@ -11,6 +13,7 @@ export const useAuth = () => {
   const { isLoading: isLoginLoading, error: loginError } =
     useSelector(selectLoginInfo);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleAction = useCallback(
     ({ email, password }, formType) => {
@@ -25,7 +28,8 @@ export const useAuth = () => {
 
   const handleLogout = useCallback(() => {
     dispatch(logoutUser());
-  }, [dispatch]);
+    navigate(paths.home, { replace: true });
+  }, [dispatch, navigate]);
 
   return {
     isRegisterLoading,

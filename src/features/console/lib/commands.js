@@ -5,4 +5,5 @@ export const commands = {
   register: '/signup',
   logout: '/logout',
   search: '/search',
+  showHistory: '/showHistory',
 };
