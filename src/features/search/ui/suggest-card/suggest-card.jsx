@@ -40,7 +40,7 @@ export default memo(SuggestCard);
 SuggestCard.propTypes = {
   bgImage: PropTypes.string,
   name: PropTypes.string.isRequired,
-  platforms: PropTypes.arrayOf(PropTypes.object).isRequired,
+  platforms: PropTypes.arrayOf(PropTypes.object),
   metacritic: PropTypes.number,
   rating: PropTypes.number,
   id: PropTypes.number.isRequired,
@@ -48,6 +48,7 @@ SuggestCard.propTypes = {
 
 SuggestCard.defaultProps = {
   bgImage: null,
+  platforms: [],
   metacritic: null,
   rating: null,
 };

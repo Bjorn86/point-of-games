@@ -1,4 +1,6 @@
 import { userValidationSchema } from 'shared/model/user-validation-schema';
+import { addToHistory } from 'features/history/model/add-to-history';
+import { getHistory } from 'features/history/model/get-history';
 import { registerUser } from 'features/auth/register';
 import { logoutUser } from 'features/auth/logout';
 import { loginUser } from 'features/auth/login';
@@ -60,10 +62,17 @@ export const search = (params, dispatch) => {
     dispatch(endpoints.searchGames.initiate(params))
       .unwrap()
       .then((res) => console.table(res))
+      .then(() => dispatch(addToHistory(params[0])))
       .catch((e) => console.warn(e));
   } else {
     console.warn(messages.searchWarning);
   }
+};
+
+export const showHistory = (dispatch) => {
+  dispatch(getHistory())
+    .then((res) => console.table(res.payload))
+    .catch((e) => console.warn(e));
 };
 
 export const showStart = () => {

@@ -71,16 +71,19 @@ export default memo(Card);
 Card.propTypes = {
   bgImage: PropTypes.string,
   name: PropTypes.string.isRequired,
-  platforms: PropTypes.arrayOf(PropTypes.object).isRequired,
+  platforms: PropTypes.arrayOf(PropTypes.object),
   metacritic: PropTypes.number,
   rating: PropTypes.number,
   id: PropTypes.number.isRequired,
-  genres: PropTypes.arrayOf(PropTypes.object).isRequired,
-  released: PropTypes.string.isRequired,
+  genres: PropTypes.arrayOf(PropTypes.object),
+  released: PropTypes.string,
 };
 
 Card.defaultProps = {
   bgImage: null,
+  platforms: [],
   metacritic: null,
   rating: null,
+  genres: [],
+  released: null,
 };

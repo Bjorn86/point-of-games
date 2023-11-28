@@ -18,7 +18,7 @@ function SearchPage() {
   ) : (
     <>
       <Section label='Search' addSectionClass={s.search}>
-        <SearchForm />
+        <SearchForm lastQuery={searchQuery} />
       </Section>
       <Section title='Search results'>
         <ErrorBoundary FallbackComponent={Fallback}>
