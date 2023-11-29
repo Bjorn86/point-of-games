@@ -9,7 +9,6 @@
   "bugs": {
     "url": "https://github.com/Bjorn86/point-of-games/issues"
   },
-  "homepage": "https://bjorn86.github.io/point-of-games/",
   "author": "Danila Legkobytov <legkobytov-danila@yandex.ru>",
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
