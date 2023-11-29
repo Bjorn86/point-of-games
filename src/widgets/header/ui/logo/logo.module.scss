@@ -2,11 +2,15 @@
 @import 'src/app/styles/variables';
 
 .logo {
-  @include font-main($textXXL, $color-black, 700);
   text-decoration: none;
   @include hover;
 }
 
-.logoDark {
+.title {
+  margin: 0;
+  @include font-main($textXXL, $color-black, 700);
+}
+
+.titleDark {
   color: $color-white;
 }

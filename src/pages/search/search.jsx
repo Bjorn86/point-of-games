@@ -1,17 +1,21 @@
 import { ErrorBoundary } from 'react-error-boundary';
 import { useSearchParams } from 'react-router-dom';
+import { memo } from 'react';
+import clsx from 'clsx';
+import { Preloader } from 'shared/ui/preloader/preloader';
 import Fallback from 'shared/ui/fallback/fallback';
 import { useSearchGamesQuery } from 'shared/api';
 import { CardsList } from 'features/cards/list';
-import { Preloader } from 'widgets/preloader';
+import { useTheme } from 'shared/lib/use-theme';
 import { SearchForm } from 'features/search';
 import { Section } from 'widgets/section';
-import s from './search-page.module.scss';
+import s from './search.module.scss';
 
-function SearchPage() {
+function Search() {
   const [searchParams] = useSearchParams();
   const searchQuery = searchParams.get('query');
   const { data, isLoading } = useSearchGamesQuery(searchQuery);
+  const theme = useTheme();
 
   return isLoading ? (
     <Preloader />
@@ -22,11 +26,17 @@ function SearchPage() {
       </Section>
       <Section title='Search results'>
         <ErrorBoundary FallbackComponent={Fallback}>
-          <CardsList data={data} />
+          {data.length ? (
+            <CardsList data={data} />
+          ) : (
+            <h2 className={clsx(s.title, { [s.titleDark]: theme === 'dark' })}>
+              Nothing found
+            </h2>
+          )}
         </ErrorBoundary>
       </Section>
     </>
   );
 }
 
-export default SearchPage;
+export default memo(Search);

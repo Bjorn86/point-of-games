@@ -1,13 +1,14 @@
 import { ErrorBoundary } from 'react-error-boundary';
+import { memo } from 'react';
+import { Preloader } from 'shared/ui/preloader/preloader';
 import { useGetLatestGamesQuery } from 'shared/api';
 import Fallback from 'shared/ui/fallback/fallback';
 import { CardsList } from 'features/cards/list';
-import { Preloader } from 'widgets/preloader';
 import { SearchForm } from 'features/search';
 import { Section } from 'widgets/section';
-import s from './home-page.module.scss';
+import s from './home.module.scss';
 
-function HomePage() {
+function Home() {
   const { data: latestGames, isLoading: isLatestGamesLoading } =
     useGetLatestGamesQuery();
 
@@ -27,4 +28,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default memo(Home);

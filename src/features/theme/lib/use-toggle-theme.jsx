@@ -19,9 +19,12 @@ export const useToggleTheme = () => {
   }, [dispatch]);
 
   // LOAD THEME FROM LOCAL STORAGE
-  useEffect(() => {
-    handleLoadTheme();
-  }, [handleLoadTheme]);
+  useEffect(
+    () => () => {
+      handleLoadTheme();
+    },
+    [handleLoadTheme],
+  );
 
   return handleToggleTheme;
 };

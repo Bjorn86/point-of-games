@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { memo } from 'react';
 import { useGetGameForFavoritesQuery } from 'shared/api';
-import { Preloader } from 'widgets/preloader';
-import { Card } from 'features/cards/card';
+import { Preloader } from 'shared/ui/preloader/preloader';
+import Card from 'shared/ui/card/card';
 
 function CardWrapper({ id }) {
   const { data, isLoading } = useGetGameForFavoritesQuery(id);
