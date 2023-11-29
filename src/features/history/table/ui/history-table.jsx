@@ -29,7 +29,6 @@ function HistoryTable({ data }) {
         className={clsx('table__link', {
           table__link_theme_dark: theme === 'dark',
         })}
-        target='_blank'
       >
         {rowData.query}
       </Link>

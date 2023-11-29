@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
+import { memo } from 'react';
+import { Preloader } from 'shared/ui/preloader/preloader';
 import { useGetGameDetailsQuery } from 'shared/api';
-import { Preloader } from 'widgets/preloader';
 import { Section } from 'widgets/section';
 import { Article } from 'widgets/article';
 
@@ -17,4 +18,4 @@ function Details() {
   );
 }
 
-export default Details;
+export default memo(Details);

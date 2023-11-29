@@ -2,13 +2,13 @@ import { useSelector } from 'react-redux';
 import { memo } from 'react';
 import clsx from 'clsx';
 import { selectHistory, selectIsUserLoading } from 'entities/user';
+import { Preloader } from 'shared/ui/preloader/preloader';
 import { HistoryTable } from 'features/history/table';
 import { useTheme } from 'shared/lib/use-theme';
-import { Preloader } from 'widgets/preloader';
 import { Section } from 'widgets/section';
-import s from './history-page.module.scss';
+import s from './history.module.scss';
 
-function HistoryPage() {
+function History() {
   const theme = useTheme();
   const history = useSelector(selectHistory);
   const isUserLoading = useSelector(selectIsUserLoading);
@@ -28,4 +28,4 @@ function HistoryPage() {
   );
 }
 
-export default memo(HistoryPage);
+export default memo(History);

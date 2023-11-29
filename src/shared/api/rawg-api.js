@@ -17,7 +17,7 @@ export const rawgApi = createApi({
         url: '/games',
         params: {
           key: process.env.REACT_APP_RAWG_API_KEY,
-          page_size: 9,
+          page_size: 18,
           dates: getDateRange(),
           ordering: '-rating',
         },

@@ -1,7 +1,7 @@
 import { HashRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Suspense } from 'react';
-import { Preloader } from 'widgets/preloader';
+import { Preloader } from 'shared/ui/preloader/preloader';
 
 // EXPORT PROVIDER
 export const RouterProvider = ({ children }) => (

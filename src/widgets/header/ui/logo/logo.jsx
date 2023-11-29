@@ -8,11 +8,10 @@ function Logo() {
   const theme = useTheme();
 
   return (
-    <Link
-      to={paths.home}
-      className={clsx(s.logo, { [s.logoDark]: theme === 'dark' })}
-    >
-      Point of Games
+    <Link to={paths.home} className={s.logo}>
+      <h1 className={clsx(s.title, { [s.titleDark]: theme === 'dark' })}>
+        Point of Games
+      </h1>
     </Link>
   );
 }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { memo } from 'react';
 import clsx from 'clsx';
 import { useTheme } from 'shared/lib/use-theme';
-import { Card } from 'features/cards/card';
+import Card from 'shared/ui/card/card';
 import s from './cards-list.module.scss';
 
 function CardsList({ data }) {
