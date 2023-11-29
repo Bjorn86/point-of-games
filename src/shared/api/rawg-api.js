@@ -67,6 +67,18 @@ export const rawgApi = createApi({
         data: response,
       }),
     }),
+    getGameDetails: builder.query({
+      query: (id) => ({
+        url: `/games/${id}`,
+        params: {
+          key: process.env.REACT_APP_RAWG_API_KEY,
+        },
+      }),
+      transformResponse: (response) => ({
+        typeOfModification: 'game',
+        data: response,
+      }),
+    }),
   }),
 });
 
@@ -74,6 +86,7 @@ export const {
   useSearchGamesForSuggestionsQuery,
   useGetGameForFavoritesQuery,
   useGetLatestGamesQuery,
+  useGetGameDetailsQuery,
   useSearchGamesQuery,
   endpoints,
 } = rawgApi;

@@ -5,6 +5,7 @@ import {
   auth,
   logout,
   search,
+  getGame,
   showHelp,
   showStart,
   showHistory,
@@ -54,6 +55,9 @@ startAppListening({
         break;
       case commands.removeFavorite:
         removeFromFavorites(params, dispatch, user);
+        break;
+      case commands.getGame:
+        getGame(params, dispatch);
         break;
       default:
         showNotFound();

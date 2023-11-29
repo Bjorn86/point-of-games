@@ -140,6 +140,14 @@ export const removeFromFavorites = async (params, dispatch, user) => {
   }
 };
 
+export const getGame = (params, dispatch) => {
+  const id = Number(params[0]);
+  dispatch(endpoints.getGameDetails.initiate(id))
+    .unwrap()
+    .then((res) => console.dir(res))
+    .catch((e) => console.warn(e));
+};
+
 export const showStart = () => {
   console.log(messages.welcome);
 };
