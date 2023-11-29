@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { rawgApi } from 'shared/api';
+import { rawgApi, featureFlagApi } from 'shared/api';
 import * as api from 'shared/api';
 import { consoleListenerMiddleware } from '../../features/console/model/console-listener';
 import { modifyRawgData } from './modify-rawg-data';
@@ -25,6 +25,7 @@ export const store = configureStore({
     })
       .prepend(consoleListenerMiddleware.middleware)
       .concat(rawgApi.middleware)
+      .concat(featureFlagApi.middleware)
       .concat(modifyRawgData)
       .concat(getUpdatedData),
 });

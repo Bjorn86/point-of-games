@@ -1,4 +1,5 @@
 export * from './main-api';
+export { featureFlagApi, useGetFeatureFlagQuery } from './feature-flag-api';
 export {
   rawgApi,
   endpoints,
