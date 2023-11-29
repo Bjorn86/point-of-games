@@ -2,6 +2,7 @@ const express = require('express');
 
 const app = express();
 const port = 3001;
+/* eslint-disable import/no-unresolved */
 const cors = require('cors');
 require('dotenv').config({ path: '../.env' });
 
