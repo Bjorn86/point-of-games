@@ -11,6 +11,7 @@ const BaseLayout = lazy(() =>
 const FavoritesPage = lazy(() => import('../favorites/favorites'));
 const HistoryPage = lazy(() => import('../history-page/history-page'));
 const SearchPage = lazy(() => import('../search-page/search-page'));
+const NotFound = lazy(() => import('../not-found/not-found'));
 const Details = lazy(() => import('../details/details'));
 const HomePage = lazy(() => import('../home-page/home-page'));
 const Register = lazy(() => import('../register/register'));
@@ -46,6 +47,7 @@ export function Routing() {
           }
         />
       </Route>
+      <Route path={paths.notFound} element={<NotFound />} />
     </Routes>
   );
 }

@@ -40,7 +40,7 @@ function Card({ ...props }) {
           </div>
         </div>
         <div className={s.bodyWrapper}>
-          <Link className={s.link} to={`/${props.id}`}>
+          <Link className={s.link} to={`/games/${props.id}`}>
             <h3 className={clsx(s.title, { [s.titleDark]: theme === 'dark' })}>
               {props.name}
             </h3>
