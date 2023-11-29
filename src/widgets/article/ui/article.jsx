@@ -1,10 +1,11 @@
+import { memo, useCallback, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { memo } from 'react';
 import clsx from 'clsx';
 import { ReactComponent as BookmarkActive } from 'shared/ui/assets/icons/bookmark-x.svg';
 import { ReactComponent as Bookmark } from 'shared/ui/assets/icons/bookmark.svg';
 import { ReactComponent as Share } from 'shared/ui/assets/icons/share.svg';
 import { useFavorites } from 'features/favorites/lib/use-favorites';
+import { FeatureFlagContext } from 'app/contexts/feature-flag';
 import Platforms from 'shared/ui/platforms/platforms';
 import { useTheme } from 'shared/lib/use-theme';
 import Release from 'shared/ui/release/release';
@@ -16,6 +17,14 @@ import s from './article.module.scss';
 function Article({ ...props }) {
   const theme = useTheme();
   const { isFavorite, handleFavoriteButtonClick } = useFavorites(props.id);
+  const { isFeatureFlagEnabled } = useContext(FeatureFlagContext);
+
+  const handleShareClick = useCallback(() => {
+    const encodedURL = `https://t.me/share/url?url=${encodeURIComponent(
+      `${window.location.href}`,
+    )}&text=${encodeURIComponent(props.name)}`;
+    window.open(encodedURL, '_blank');
+  }, [props.name]);
 
   const renderPlatformsDetail = () => {
     const platformDetails = props.platformsDetail.map((p) => p.platform.name);
@@ -134,11 +143,14 @@ function Article({ ...props }) {
                   onClick={handleFavoriteButtonClick}
                 />
               )}
-              <Button
-                view='rounded'
-                content={theme === 'dark' ? <Share fill='#fff' /> : <Share />}
-                alt='Share'
-              />
+              {isFeatureFlagEnabled && (
+                <Button
+                  view='rounded'
+                  content={theme === 'dark' ? <Share fill='#fff' /> : <Share />}
+                  alt='Share to Telegram'
+                  onClick={handleShareClick}
+                />
+              )}
             </div>
           </div>
         </div>
