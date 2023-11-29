@@ -1,14 +1,13 @@
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Suspense } from 'react';
 import { Preloader } from 'shared/ui/preloader/preloader';
 
 // EXPORT PROVIDER
 export const RouterProvider = ({ children }) => (
-  /* HashRouter используется как условие для деплоя на GitHub Pages */
-  <HashRouter>
+  <BrowserRouter>
     <Suspense fallback={<Preloader />}>{children}</Suspense>
-  </HashRouter>
+  </BrowserRouter>
 );
 
 RouterProvider.propTypes = {
