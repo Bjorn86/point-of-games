@@ -6,6 +6,11 @@ import { ReactComponent as Nintendo } from '../../assets/icons/nintendo.svg';
 import { ReactComponent as Playstation } from '../../assets/icons/playstation.svg';
 import { ReactComponent as PC } from '../../assets/icons/windows.svg';
 import { ReactComponent as Xbox } from '../../assets/icons/xbox.svg';
+import { ReactComponent as Atari } from '../../assets/icons/atari.svg';
+import { ReactComponent as CommondoreAmiga } from '../../assets/icons/commodore-amiga.svg';
+import { ReactComponent as Sega } from '../../assets/icons/sega.svg';
+import { ReactComponent as P3DO } from '../../assets/icons/3do.svg';
+import { ReactComponent as Web } from '../../assets/icons/globe.svg';
 
 export const platformsLogo = [
   {
@@ -30,8 +35,8 @@ export const platformsLogo = [
   },
   {
     id: 5,
-    logo: <Apple title='Apple' key={5} />,
-    logoDark: <Apple title='Apple' key={5} fill='#fff' />,
+    logo: <Apple title='Apple Macintosh' key={5} />,
+    logoDark: <Apple title='Apple Macintosh' key={5} fill='#fff' />,
   },
   {
     id: 6,
@@ -47,5 +52,37 @@ export const platformsLogo = [
     id: 8,
     logo: <Android title='Android' key={8} />,
     logoDark: <Android title='Android' key={8} fill='#fff' />,
+  },
+  {
+    id: 9,
+    logo: <Atari title='Atari' key={9} />,
+    logoDark: <Atari title='Atari' key={9} fill='#fff' />,
+  },
+  {
+    id: 10,
+    logo: <CommondoreAmiga title='Commodore / Amiga' key={10} />,
+    logoDark: (
+      <CommondoreAmiga title='Commodore / Amiga' key={10} fill='#fff' />
+    ),
+  },
+  {
+    id: 11,
+    logo: <Sega title='Sega' key={11} />,
+    logoDark: <Sega title='Sega' key={11} fill='#fff' />,
+  },
+  {
+    id: 12,
+    logo: <P3DO title='3DO' key={12} />,
+    logoDark: <P3DO title='3DO' key={12} fill='#fff' />,
+  },
+  {
+    id: 13,
+    logo: <Nintendo title='Neo-Geo' key={13} />,
+    logoDark: <Nintendo title='Neo-Geo' key={13} fill='#fff' />,
+  },
+  {
+    id: 14,
+    logo: <Web title='Web' key={14} />,
+    logoDark: <Web title='Web' key={14} fill='#fff' />,
   },
 ];

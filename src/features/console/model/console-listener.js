@@ -4,9 +4,15 @@ import { commands } from 'features/console/lib/commands';
 import {
   auth,
   logout,
-  showStart,
+  search,
+  getGame,
   showHelp,
+  showStart,
+  showHistory,
   showNotFound,
+  showFavorites,
+  addToFavorites,
+  removeFromFavorites,
 } from 'features/console/lib/utils';
 
 export const consoleListenerMiddleware = createListenerMiddleware();
@@ -17,7 +23,8 @@ startAppListening({
   actionCreator: setEnteredParams,
   effect: async (action, listenerApi) => {
     const { command, params } = action.payload;
-    const { dispatch } = listenerApi;
+    const { dispatch, getState } = listenerApi;
+    const { user } = getState().user;
     switch (command) {
       case commands.init:
         showStart();
@@ -33,6 +40,24 @@ startAppListening({
         break;
       case commands.logout:
         logout(dispatch);
+        break;
+      case commands.search:
+        search(params, dispatch);
+        break;
+      case commands.showHistory:
+        showHistory(dispatch, user);
+        break;
+      case commands.showFavorites:
+        showFavorites(dispatch, user);
+        break;
+      case commands.addFavorite:
+        addToFavorites(params, dispatch, user);
+        break;
+      case commands.removeFavorite:
+        removeFromFavorites(params, dispatch, user);
+        break;
+      case commands.getGame:
+        getGame(params, dispatch);
         break;
       default:
         showNotFound();

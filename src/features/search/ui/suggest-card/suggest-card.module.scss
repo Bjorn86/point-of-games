@@ -1,0 +1,72 @@
+@import 'src/app/styles/mixins';
+@import 'src/app/styles/variables';
+
+.link {
+  padding: 5px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  transition: background-image 0.3s ease-in-out;
+  &:hover {
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+}
+
+.image {
+  width: 125px;
+  height: 70px;
+  object-fit: cover;
+  vertical-align: bottom;
+}
+
+.plug {
+  width: 125px;
+  height: 70px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-light-grey;
+  @include font-main($textS, $color-black, 500);
+  user-select: none;
+}
+
+.plugDark {
+  color: $color-white;
+}
+
+.wrapper {
+  width: 1065px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.title {
+  margin: 0;
+  max-width: 100%;
+  @include font-main($textL, $color-black, 700);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.titleDark {
+  color: $color-white;
+}
+
+.metaWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.scoreWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

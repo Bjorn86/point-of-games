@@ -1,0 +1,45 @@
+@import 'src/app/styles/mixins';
+@import 'src/app/styles/variables';
+
+.section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-white;
+}
+
+.sectionDark {
+  background-color: $color-light-black;
+}
+
+.title {
+  margin: 0;
+  @include font-main($textXXXL, $color-black, 700);
+}
+
+.titleDark {
+  color: $color-white;
+}
+
+.text {
+  margin: 0;
+  @include font-main($textXXL, $color-black, 400);
+}
+
+.textDark {
+  color: $color-white;
+}
+
+.link {
+  margin-top: 20px;
+  @include font-main($textXL, $color-black, 700);
+  text-decoration: none;
+  @include hover;
+}
+
+.linkDark {
+  color: $color-white;
+}

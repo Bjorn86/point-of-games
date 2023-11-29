@@ -1,0 +1,50 @@
+@import 'src/app/styles/mixins';
+@import 'src/app/styles/variables';
+
+.table {
+  &__row {
+    display: flex;
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-grey;
+    }
+  }
+  &__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    @include font-main($textM, $color-black, 700);
+    &:not(:last-child) {
+      border-right: 1px dashed $color-grey;
+    }
+    &_theme_dark {
+      color: $color-white;
+    }
+  }
+  &__column {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    @include font-main($textS, $color-black, 400);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    &:not(:last-child) {
+      border-right: 1px dashed $color-grey;
+    }
+    &_position_center {
+      justify-content: center;
+    }
+    &_theme_dark {
+      color: $color-white;
+    }
+  }
+  &__link {
+    @include font-main($textS, $color-black, 400);
+    text-decoration: none;
+    @include hover;
+    &_theme_dark {
+      color: $color-white;
+    }
+  }
+}

@@ -4,4 +4,10 @@ export const commands = {
   login: '/signin',
   register: '/signup',
   logout: '/logout',
+  search: '/search',
+  showHistory: '/showHistory',
+  showFavorites: '/showFavorites',
+  addFavorite: '/addFavorite',
+  removeFavorite: '/removeFavorite',
+  getGame: '/getGame',
 };

@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { cardsApi } from 'entities/cards';
+import { rawgApi, featureFlagApi } from 'shared/api';
 import * as api from 'shared/api';
-import { modifyCardsData } from '../../features/cards/model/modify-cards-data'; // TODO ?
-import { consoleListenerMiddleware } from '../../features/console/model/console-listener'; // TODO ?
+import { consoleListenerMiddleware } from '../../features/console/model/console-listener';
+import { modifyRawgData } from './modify-rawg-data';
+import { getUpdatedData } from './get-updated-data';
 import { rootReducer } from './root-reducer';
 
 export const store = configureStore({
@@ -23,6 +24,8 @@ export const store = configureStore({
       },
     })
       .prepend(consoleListenerMiddleware.middleware)
-      .concat(cardsApi.middleware)
-      .concat(modifyCardsData),
+      .concat(rawgApi.middleware)
+      .concat(featureFlagApi.middleware)
+      .concat(modifyRawgData)
+      .concat(getUpdatedData),
 });

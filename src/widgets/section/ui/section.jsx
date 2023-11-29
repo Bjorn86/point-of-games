@@ -8,18 +8,17 @@ function Section({ ...props }) {
   const theme = useTheme();
 
   return (
-    <section className={s.section} aria-label={props.label}>
-      {props.title
-        ? !props.label && (
-            <h1 className={clsx(s.title, { [s.titleDark]: theme === 'dark' })}>
-              {props.title}
-            </h1>
-          )
-        : props.label && (
-            <h2 className={clsx(s.title, { [s.titleDark]: theme === 'dark' })}>
-              {props.title}
-            </h2>
-          )}
+    <section
+      className={clsx(s.section, {
+        [props.addSectionClass]: props.addSectionClass,
+      })}
+      aria-label={props.label}
+    >
+      {props.title && (
+        <h2 className={clsx(s.title, { [s.titleDark]: theme === 'dark' })}>
+          {props.title}
+        </h2>
+      )}
       {props.children}
     </section>
   );
@@ -28,12 +27,14 @@ function Section({ ...props }) {
 export default memo(Section);
 
 Section.propTypes = {
+  addSectionClass: PropTypes.string,
   title: PropTypes.string,
   label: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
 
 Section.defaultProps = {
+  addSectionClass: null,
   title: null,
   label: null,
 };

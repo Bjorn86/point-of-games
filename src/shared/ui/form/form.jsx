@@ -1,31 +1,25 @@
-import { yupResolver } from '@hookform/resolvers/yup';
 import { Children, cloneElement, memo } from 'react';
-import { useForm } from 'react-hook-form';
 import PropTypes from 'prop-types';
+import clsx from 'clsx';
 import Button from 'shared/ui/button/button';
 import s from './form.module.scss';
 
-function Form({ ...props }) {
-  const { control, handleSubmit } = useForm({
-    mode: 'onBlur',
-    resolver: yupResolver(props.validationSchema),
-  });
-
+function Form({ control, ...props }) {
   return (
     <form
-      className={s.form}
+      className={clsx(s.form, { [props.addFormClass]: props.addFormClass })}
       name={props.formName}
       id={props.formName}
       noValidate
-      onSubmit={handleSubmit(props.onSubmit)}
+      onSubmit={props.onSubmit}
     >
       {Children.map(props.children, (child) =>
-        cloneElement(child, {
-          control,
-        }),
+        cloneElement(child, { control }),
       )}
       <Button
-        addClass={s.formButton}
+        addClass={clsx({
+          [props.addButtonClass]: props.addButtonClass,
+        })}
         view='withText'
         type='submit'
         content={props.buttonText}
@@ -38,7 +32,9 @@ function Form({ ...props }) {
 export default memo(Form);
 
 Form.propTypes = {
-  validationSchema: PropTypes.shape({}),
+  control: PropTypes.shape({}),
+  addFormClass: PropTypes.string,
+  addButtonClass: PropTypes.string,
   formName: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
@@ -47,6 +43,8 @@ Form.propTypes = {
 };
 
 Form.defaultProps = {
-  validationSchema: {},
+  control: {},
+  addFormClass: null,
+  addButtonClass: null,
   isDisabled: false,
 };

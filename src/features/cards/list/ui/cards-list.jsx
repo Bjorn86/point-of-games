@@ -1,12 +1,12 @@
 import { ErrorBoundary } from 'react-error-boundary';
+import PropTypes from 'prop-types';
+import { memo } from 'react';
 import clsx from 'clsx';
-import { useGetLatestGamesQuery } from 'entities/cards';
 import { useTheme } from 'shared/lib/use-theme';
-import { Card } from 'features/cards/card';
+import Card from 'shared/ui/card/card';
 import s from './cards-list.module.scss';
 
-export function CardsList() {
-  const { data } = useGetLatestGamesQuery();
+function CardsList({ data }) {
   const theme = useTheme();
 
   return (
@@ -24,3 +24,9 @@ export function CardsList() {
     </ul>
   );
 }
+
+export default memo(CardsList);
+
+CardsList.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
