@@ -85,6 +85,15 @@
   align-items: center;
 }
 
+.description {
+  margin: 0;
+  @include font-main($textS, $color-grey, 500);
+}
+
+.descriptionDark {
+  color: $color-white;
+}
+
 .buttonsWrapper {
   display: flex;
   gap: 6px;

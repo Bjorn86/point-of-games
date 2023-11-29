@@ -1,15 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { memo } from 'react';
 import clsx from 'clsx';
 import { ReactComponent as BookmarkActive } from 'shared/ui/assets/icons/bookmark-x.svg';
-import { removeFromFavorites } from 'features/favorites/model/remove-from-favorites';
 import { ReactComponent as Bookmark } from 'shared/ui/assets/icons/bookmark.svg';
 import { ReactComponent as Share } from 'shared/ui/assets/icons/share.svg';
-import { addToFavorites } from 'features/favorites/model/add-to-favorites';
+import { useFavorites } from 'features/favorites/lib/use-favorites';
 import Platforms from 'shared/ui/platforms/platforms';
-import { selectFavorites } from 'entities/user';
 import { useTheme } from 'shared/lib/use-theme';
 import Release from 'shared/ui/release/release';
 import Button from 'shared/ui/button/button';
@@ -19,17 +16,7 @@ import s from './card.module.scss';
 
 function Card({ ...props }) {
   const theme = useTheme();
-  const dispatch = useDispatch();
-  const favorites = useSelector(selectFavorites);
-  const isFavorite = favorites.includes(props.id);
-
-  const handleFavoriteButtonClick = () => {
-    if (isFavorite) {
-      dispatch(removeFromFavorites(props.id));
-    } else {
-      dispatch(addToFavorites(props.id));
-    }
-  };
+  const { handleFavoriteButtonClick, isFavorite } = useFavorites(props.id);
 
   return (
     <div>
@@ -61,18 +48,18 @@ function Card({ ...props }) {
           <Genres genres={props.genres} />
         </div>
         <div className={s.footerWrapper}>
-          <Release releaseDate={props.released} />
+          <p
+            className={clsx(s.description, {
+              [s.descriptionDark]: theme === 'dark',
+            })}
+          >
+            Release date: <Release releaseDate={props.released} />
+          </p>
           <div className={s.buttonsWrapper}>
             {isFavorite ? (
               <Button
                 view='rounded'
-                content={
-                  theme === 'dark' ? (
-                    <BookmarkActive fill='#fff' />
-                  ) : (
-                    <BookmarkActive />
-                  )
-                }
+                content={<BookmarkActive />}
                 alt='Remove from favorites'
                 onClick={handleFavoriteButtonClick}
               />

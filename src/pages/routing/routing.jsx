@@ -11,6 +11,7 @@ const BaseLayout = lazy(() =>
 const FavoritesPage = lazy(() => import('../favorites/favorites'));
 const HistoryPage = lazy(() => import('../history-page/history-page'));
 const SearchPage = lazy(() => import('../search-page/search-page'));
+const Details = lazy(() => import('../details/details'));
 const HomePage = lazy(() => import('../home-page/home-page'));
 const Register = lazy(() => import('../register/register'));
 const Login = lazy(() => import('../login/login'));
@@ -27,6 +28,7 @@ export function Routing() {
         <Route path={paths.registration} element={<Register />} />
         <Route path={paths.login} element={<Login />} />
         <Route path={paths.search} element={<SearchPage />} />
+        <Route path={paths.details} element={<Details />} />
         <Route
           path={paths.history}
           element={

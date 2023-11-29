@@ -36,8 +36,25 @@ export const modifyRawgData = () => (next) => (action) => {
           released: action.payload.data.released,
         };
         break;
+      case 'game':
       default:
-        modifiedPayload = action.payload.data;
+        modifiedPayload = {
+          id: action.payload.data.id,
+          name: action.payload.data.name,
+          description: action.payload.data.description_raw,
+          bgImage: action.payload.data.background_image,
+          website: action.payload.data.website,
+          platforms: action.payload.data.parent_platforms,
+          platformsDetail: action.payload.data.platforms,
+          metacritic: action.payload.data.metacritic,
+          rating: action.payload.data.rating,
+          genres: action.payload.data.genres,
+          released: action.payload.data.released,
+          tba: action.payload.data.tba,
+          developers: action.payload.data.developers,
+          playtime: action.payload.data.playtime,
+          esrbRating: action.payload.data.esrb_rating,
+        };
     }
     return next({
       ...action,

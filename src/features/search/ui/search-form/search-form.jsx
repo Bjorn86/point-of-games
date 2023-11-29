@@ -46,7 +46,9 @@ export function SearchForm({ lastQuery }) {
   }, []);
 
   const handleBlurExtension = useCallback(() => {
-    setSuggestionsShown(false);
+    setTimeout(() => {
+      setSuggestionsShown(false);
+    }, 100);
   }, []);
 
   const handleFocusExtension = useCallback(() => {

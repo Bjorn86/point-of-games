@@ -9,4 +9,5 @@ export const commands = {
   showFavorites: '/showFavorites',
   addFavorite: '/addFavorite',
   removeFavorite: '/removeFavorite',
+  getGame: '/getGame',
 };

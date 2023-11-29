@@ -11,7 +11,7 @@ function SuggestCard({ ...props }) {
   const theme = useTheme();
 
   return (
-    <Link className={s.link} to={`/cards/${props.id}`}>
+    <Link className={s.link} to={`/${props.id}`}>
       {props.bgImage ? (
         <img className={s.image} src={props.bgImage} alt={props.name} />
       ) : (
