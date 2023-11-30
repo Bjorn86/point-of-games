@@ -11,6 +11,7 @@
     - [Требования к проекту](#требования-к-проекту)
   - [Функциональность проекта](#функциональность-проекта)
     - [Использование Console API](#использование-console-api)
+    - [Feature flag](#feature-flag)
   - [Screenshot](#screenshot)
   - [Директории проекта](#директории-проекта)
   - [Запуск проекта](#запуск-проекта)
@@ -29,44 +30,46 @@
 #### Требования к проекту
 
 - 1 уровень (обязательный)
-  - [ ] Реализованы **Требования к функциональности**
-  - [ ] Для хранения учетных записей пользователей, их Избранного и Истории поиска, используем **LocalStorage**
+  - [x] Реализованы **Требования к функциональности**
+  - [ ] Для хранения учетных записей пользователей, их Избранного и Истории поиска, используем **LocalStorage** (в качестве БД используется Firebase)
   - React
-    - [x] **Используются функциональные компоненты c хуками** в приоритете над классовыми
-    - [x] Есть разделение на **умные и глупые компоненты**
-    - [x] Есть **рендеринг списков**
-    - [x] Реализована хотя бы одна **форма**
-    - [x] Есть применение **Контекст API**
-    - [x] Есть применение **предохранителя**
-    - [x] Есть хотя бы один **кастомный хук**
-    - [x] Хотя бы несколько компонентов используют **PropTypes**
-    - [ ] Поиск не должен триггерить много запросов к серверу (**debounce**)
-    - [x] Есть применение **lazy + Suspense**
+    - [x] **Используются функциональные компоненты c хуками** в приоритете над классовыми ([пример](https://github.com/Bjorn86/point-of-games/blob/main/src/features/search/ui/search-form/search-form.jsx))
+    - [x] Есть разделение на **умные и глупые компоненты** ([пример умного компонента](https://github.com/Bjorn86/point-of-games/blob/main/src/pages/details/details.jsx), [пример глупого компонента](https://github.com/Bjorn86/point-of-games/blob/main/src/shared/ui/score/score.jsx))
+    - [x] Есть **рендеринг списков** ([пример](https://github.com/Bjorn86/point-of-games/blob/main/src/features/cards/list/ui/cards-list.jsx))
+    - [x] Реализована хотя бы одна **форма** ([пример](https://github.com/Bjorn86/point-of-games/blob/main/src/shared/ui/form/form.jsx))
+    - [x] Есть применение **Контекст API** ([пример](https://github.com/Bjorn86/point-of-games/blob/main/src/app/contexts/current-user.js))
+    - [x] Есть применение **предохранителя** ([пример](https://github.com/Bjorn86/point-of-games/blob/main/src/pages/home/home.jsx))
+    - [x] Есть хотя бы один **кастомный хук** ([пример](https://github.com/Bjorn86/point-of-games/blob/main/src/features/favorites/lib/use-favorites.jsx))
+    - [x] Хотя бы несколько компонентов используют **PropTypes** ([пример](https://github.com/Bjorn86/point-of-games/blob/main/src/widgets/article/ui/article.jsx))
+    - [x] Поиск не должен триггерить много запросов к серверу (используется **debounce**) ([пример использования](https://github.com/Bjorn86/point-of-games/blob/main/src/features/search/ui/search-form/search-form.jsx), [useDebounce](https://github.com/Bjorn86/point-of-games/blob/main/src/shared/lib/use-debounce.jsx))
+    - [x] Есть применение **lazy + Suspense** ([пример lazy](https://github.com/Bjorn86/point-of-games/blob/main/src/pages/routing/routing.jsx), [пример Suspense](https://github.com/Bjorn86/point-of-games/blob/main/src/app/providers/router-provider.jsx))
   - Redux
     - [x] Используем **Modern Redux with Redux Toolkit**
-    - [x] Используем **слайсы**
-    - [x] Есть хотя бы одна **кастомная мидлвара**
-    - [x] Используется **RTK Query**
-    - [x] Используется **Transforming Responses**
+    - [x] Используем **слайсы** ([пример](https://github.com/Bjorn86/point-of-games/blob/main/src/entities/auth/model/slice.js))
+    - [x] Есть хотя бы одна **кастомная мидлвара** ([пример](https://github.com/Bjorn86/point-of-games/blob/main/src/app/store/modify-rawg-data.js))
+    - [x] Используется **RTK Query** ([пример](https://github.com/Bjorn86/point-of-games/blob/main/src/shared/api/rawg-api.js))
+    - [x] Используется **Transforming Responses** ([пример](https://github.com/Bjorn86/point-of-games/blob/main/src/shared/api/rawg-api.js))
 - 2 уровень (необязательный)
   - [ ] Использование **TypeScript**
   - [ ] Подключен **storybook** и созданы два, три сториса с knobs, которые показывают разные состояния компонента
   - [x] Использование **Firebase** для учетных записей пользователей и их Избранного и Истории поиска
   - [x] Настроен **CI/CD**
-  - [ ] Реализована **виртуализация списков**
-  - [x] Используются **мемоизированные селекторы**
+  - [x] Реализована **виртуализация списков** ([пример](https://github.com/Bjorn86/point-of-games/blob/main/src/features/history/table/ui/history-table.jsx))
+  - [x] Используются **мемоизированные селекторы** ([пример](https://github.com/Bjorn86/point-of-games/blob/main/src/entities/auth/model/slice.js))
   - [ ] Используется **нормализованная структура стейта**
   - [ ] Проведена **оптимизация приложения**
-  - [ ] **Feature Flags.** Реализовать фичу “Поделиться в телеграм”, закрытую под фича флагом.
+  - [x] **Feature Flags.** Реализовать фичу “Поделиться в телеграм”, закрытую под фича флагом
   - [ ] Добавить тесты через jest, react-testing-library или Playwright.
   - [x] Связь UI и бизнес-логики построена не через команды, а через **события**
-  - [x] **Project Console API**
+  - [x] **Project Console API** ([фича](https://github.com/Bjorn86/point-of-games/tree/main/src/features/console))
 
 ### Функциональность проекта
 
+В проекте имеется возможность авторизации и регистрации пользователя. Поиска игр по названию с показом саджестов. История поиска сохраняется, пользователь имеет возможность просмотреть её е перейти к ранее выпоенному запросу, либо удалить его. Сохранение понравившихся игр в избранное и просмотр списка избранных игр с возможностью их удаления из списка. По игре можно посмотреть детальную информацию.
+
 #### Использование Console API
 
-Откройте консоль браузера, вы увидите приветствие и пояснения как использовать Console API.
+В проекте имеется возможность управлять приложением не используя UI. Откройте консоль браузера, вы увидите приветствие и пояснения как использовать Console API.
 Список доступных команд:
 
 ```javascript
@@ -74,9 +77,25 @@ point('/help'); // показывает список доступных кома
 point('/signin [email] [password]'); // авторизация пользователя
 point('/signup [email] [password]'); // регистрация пользователя
 point('/logout'); // выход из аккаунта
+point('/search [query]'); // поиск игры по названию
+point('/showHistory'); // показывает историю поиска
+point('/showFavorites'); // показывает список избранных игр
+point('/addFavorite [id]'); // добавляет игру в избранное по ID
+point('/removeFavorite [id]'); // удаляет игру из избранного по ID
+point('/getGame [id]'); // получает игру по ID
 ```
 
+#### Feature flag
+
+В корневой директории проекта есть директория `server`, в которой находится локальный API для проекта, который возвращает параметр открывающей в приложении возможность поделится ссылкой на страницу понравившейся игры в Telegram (на карточке игры и на странице детального просмотра появляется соответствующая кнопка).
+
+Для того чтобы воспользоваться данной возможностью скопируйте репозиторий себе и установите необходимые зависимости. Затем перейдите в своей IDE в директорию `server` и установите зависимости для него. Вернитесь в корневую директорию проекта и запустите команду `npm start` для запуска проекта, а в другом терминале запустите команду `npm run server`. Теперь вам доступен этот функционал.
+
 ### Screenshot
+
+![screenshot](/screenshots/pog-1.png)
+![screenshot](/screenshots/pog-2.png)
+![screenshot](/screenshots/pog-3.png)
 
 ### Директории проекта
 
@@ -91,6 +110,7 @@ point('/logout'); // выход из аккаунта
 
 - `npm start` - режим разработки с запуском локального сервера
 - `npm run build` - режим сборки проекта в продакшн
+- `npm run server` - запуск локального сервера для Feature flag
 - `npm run test` - запуск в режиме тестирования
 - `npm run eject` - режим извлечения конфигов CRA
 - `npm run lint` - запускает линтер
@@ -103,8 +123,8 @@ point('/logout'); // выход из аккаунта
 
 ### Ссылки
 
-- [Ссылка на репозиторий проекта](https://github.com/Bjorn86/point-of-games.git)
-- [Ссылка на демо-страницу проекта](https://bjorn86.github.io/point-of-games/)
+- [Ссылка на репозиторий проекта](https://github.com/Bjorn86/point-of-games)
+- [Ссылка на демо-страницу проекта](https://point-of-games.web.app/)
 
 ## Ход выполнения проекта
 
@@ -122,6 +142,7 @@ point('/logout'); // выход из аккаунта
   - [Firebase](https://firebase.google.com/)
   - [React Hook Form](https://react-hook-form.com/)
   - [React error boundary](https://www.npmjs.com/package/react-error-boundary)
+  - [React virtualized](https://github.com/bvaughn/react-virtualized)
   - [Yup](https://www.npmjs.com/package/yup)
   - [Storybook](https://storybook.js.org/)
   - Семантическая вёрстка
@@ -133,6 +154,8 @@ point('/logout'); // выход из аккаунта
 - Работе с CSS Modules
 - Работе с RTK Query
 - Работе с Firebase
+- Работе с виртуализованными списками
+- Построению работы приложения без взаимодействия с UI
 - Работе по методологии Feature-Sliced Design
 - Обработке ошибок при помощи предохранителей (Error boundaries)
 
