@@ -1,8 +1,6 @@
-/* import { onAuthStateChanged } from 'firebase/auth'; */
 import { useEffect, useMemo, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-/* import { auth } from 'app/firebase'; */
 import { userDataReceived } from 'features/user/model/user-data-received';
 import { AuthContext } from 'app/contexts';
 import { checkAuth } from 'shared/api';
