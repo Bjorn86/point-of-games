@@ -30,17 +30,18 @@ export const checkAuth = (cb) => {
   });
 };
 
-export const createUserDB = (user) => {
-  setDoc(doc(db, 'users', user), {
+export const createUserDB = async (user) => {
+  await setDoc(doc(db, 'users', user), {
     user,
     favorites: [],
     history: [],
   });
 };
 
-export const getUserData = (user) => {
+export const getUserData = async (user) => {
   const userRef = doc(db, 'users', user);
-  return getDoc(userRef);
+  const docSnap = await getDoc(userRef);
+  return docSnap;
 };
 
 export const getUserHistory = async (user) => {
@@ -53,16 +54,16 @@ export const getUserHistory = async (user) => {
   return [];
 };
 
-export const addToHistory = (user, query) => {
+export const addToHistory = async (user, query) => {
   const userRef = doc(db, 'users', user);
-  updateDoc(userRef, {
+  await updateDoc(userRef, {
     history: arrayUnion(query),
   });
 };
 
-export const removeFromHistory = (user, query) => {
+export const removeFromHistory = async (user, query) => {
   const userRef = doc(db, 'users', user);
-  updateDoc(userRef, {
+  await updateDoc(userRef, {
     history: arrayRemove(query),
   });
 };
@@ -77,16 +78,16 @@ export const getUserFavorites = async (user) => {
   return [];
 };
 
-export const addToFavorites = (user, gameID) => {
+export const addToFavorites = async (user, gameID) => {
   const userRef = doc(db, 'users', user);
-  updateDoc(userRef, {
+  await updateDoc(userRef, {
     favorites: arrayUnion(gameID),
   });
 };
 
-export const removeFromFavorites = (user, gameID) => {
+export const removeFromFavorites = async (user, gameID) => {
   const userRef = doc(db, 'users', user);
-  updateDoc(userRef, {
+  await updateDoc(userRef, {
     favorites: arrayRemove(gameID),
   });
 };

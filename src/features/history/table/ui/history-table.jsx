@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import { removeFromHistory } from 'features/history/model/remove-from-history';
+import { deletedFromHistory } from 'features/history/model/deleted-from-history';
 import { ReactComponent as Trash } from 'shared/ui/assets/icons/trash.svg';
 import { useTheme } from 'shared/lib/use-theme';
 import Button from 'shared/ui/button/button';
@@ -37,7 +37,7 @@ function HistoryTable({ data }) {
 
   const removeRecord = useCallback(
     (query) => {
-      dispatch(removeFromHistory(query));
+      dispatch(deletedFromHistory(query));
     },
     [dispatch],
   );

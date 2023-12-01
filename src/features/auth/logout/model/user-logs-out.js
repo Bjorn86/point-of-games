@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const logoutUser = createAsyncThunk(
-  '@@auth/logout',
+export const userLogsOut = createAsyncThunk(
+  '@@auth/userLogsOut',
   async (_, { rejectWithValue, extra: { api } }) => {
     try {
       const res = await api.logout();

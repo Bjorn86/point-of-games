@@ -15,18 +15,18 @@ export function AuthSection({ ...props }) {
           {props.title}
         </h1>
         {props.children}
-        {props.title === 'Регистрация' ? (
+        {props.title === 'Registration' ? (
           <p className={s.text}>
-            Уже зарегистрированы?{' '}
+            Already registered?{' '}
             <Link className={s.link} to={paths.login}>
-              Войти
+              Sign in
             </Link>
           </p>
         ) : (
           <p className={s.text}>
-            У вас нет аккаунта?{' '}
+            You don't have an account?{' '}
             <Link className={s.link} to={paths.registration}>
-              Зарегистрироваться
+              Sign up
             </Link>
           </p>
         )}

@@ -1,2 +1,2 @@
 export { Logout } from './ui/logout';
-export { logoutUser } from './model/logout-user';
+export { userLogsOut } from './model/user-logs-out';

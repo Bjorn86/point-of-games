@@ -1,7 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { lazy, useContext } from 'react';
 import { Preloader } from 'shared/ui/preloader/preloader';
-import { CurrentUserContext } from 'app/contexts';
+import { selectIsUserLoading } from 'entities/user';
+import { AuthContext } from 'app/contexts';
 import { paths } from 'shared/model/paths-config';
 import ProtectedRoute from '../providers/protected-route';
 
@@ -18,9 +20,10 @@ const Login = lazy(() => import('../login/login'));
 const Home = lazy(() => import('../home/home'));
 
 export function Routing() {
-  const { isLoading: isUserLoading } = useContext(CurrentUserContext);
+  const { isCheckingAuth } = useContext(AuthContext);
+  const isUserLoading = useSelector(selectIsUserLoading);
 
-  return isUserLoading ? (
+  return isUserLoading || isCheckingAuth ? (
     <Preloader />
   ) : (
     <Routes>

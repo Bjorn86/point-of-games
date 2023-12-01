@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const removeFromFavorites = createAsyncThunk(
-  '@@favorites/remove',
+export const deletedFromFavorites = createAsyncThunk(
+  '@@favorites/deletedFromFavorites',
   async (gameID, { getState, rejectWithValue, extra: { api } }) => {
     const { user } = getState().user;
     if (user) {

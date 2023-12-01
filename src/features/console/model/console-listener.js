@@ -1,5 +1,5 @@
 import { createListenerMiddleware } from '@reduxjs/toolkit';
-import { setEnteredParams } from 'features/console/model/set-entered-params';
+import { enteredParamsSet } from 'features/console/model/entered-params-set';
 import { commands } from 'features/console/lib/commands';
 import {
   auth,
@@ -20,7 +20,7 @@ export const consoleListenerMiddleware = createListenerMiddleware();
 const startAppListening = consoleListenerMiddleware.startListening;
 
 startAppListening({
-  actionCreator: setEnteredParams,
+  actionCreator: enteredParamsSet,
   effect: async (action, listenerApi) => {
     const { command, params } = action.payload;
     const { dispatch, getState } = listenerApi;

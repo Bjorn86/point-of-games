@@ -1,15 +1,15 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getUserData } from 'features/user/model/get-user-data';
+import { userDbCreated } from 'features/user/model/user-db-created';
 
-export const loginUser = createAsyncThunk(
-  '@@auth/login',
+export const userRegisters = createAsyncThunk(
+  '@@auth/userRegisters',
   async (
     { email, password },
     { dispatch, rejectWithValue, extra: { api } },
   ) => {
     try {
-      const res = await api.signIn({ email, password });
-      dispatch(getUserData(email));
+      const res = await api.signUp({ email, password });
+      dispatch(userDbCreated(res.user.email));
       return res.user;
     } catch (error) {
       return rejectWithValue(error.message);

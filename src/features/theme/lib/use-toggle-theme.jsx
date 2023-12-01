@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useCallback } from 'react';
-import { loadTheme } from 'features/theme/change-theme/model/load-theme';
-import { changeTheme, selectTheme } from 'entities/theme';
+import { themeLoaded } from 'features/theme/change-theme/model/theme-loaded';
+import { themeToggled, selectTheme } from 'entities/theme';
 import { saveDataToLS } from 'shared/lib/utils';
 
 export const useToggleTheme = () => {
@@ -10,21 +10,18 @@ export const useToggleTheme = () => {
 
   const handleToggleTheme = useCallback(() => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
-    dispatch(changeTheme(newTheme));
+    dispatch(themeToggled(newTheme));
     saveDataToLS('theme', newTheme);
   }, [dispatch, theme]);
 
   const handleLoadTheme = useCallback(() => {
-    dispatch(loadTheme());
+    dispatch(themeLoaded());
   }, [dispatch]);
 
   // LOAD THEME FROM LOCAL STORAGE
-  useEffect(
-    () => () => {
-      handleLoadTheme();
-    },
-    [handleLoadTheme],
-  );
+  useEffect(() => {
+    handleLoadTheme();
+  }, [handleLoadTheme]);
 
   return handleToggleTheme;
 };
