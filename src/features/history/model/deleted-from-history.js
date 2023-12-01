@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const removeFromHistory = createAsyncThunk(
-  '@@history/remove',
+export const deletedFromHistory = createAsyncThunk(
+  '@@history/deletedFromHistory',
   async (query, { getState, rejectWithValue, extra: { api } }) => {
     const { user } = getState().user;
     if (user) {

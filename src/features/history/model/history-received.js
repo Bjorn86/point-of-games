@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const getHistory = createAsyncThunk(
-  '@@user/getHistory',
+export const historyReceived = createAsyncThunk(
+  '@@user/historyReceived',
   async (_, { getState, rejectWithValue, extra: { api } }) => {
     const { user } = getState().user;
     try {

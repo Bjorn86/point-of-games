@@ -1,7 +1,7 @@
 import { createAction } from '@reduxjs/toolkit';
 
-export const setEnteredParams = createAction(
-  '@@console/setEnteredParams',
+export const enteredParamsSet = createAction(
+  '@@console/enteredParamsSet',
   (command, params) => ({
     payload: {
       command,

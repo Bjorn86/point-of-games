@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const getFavorites = createAsyncThunk(
-  '@@user/getFavorites',
+export const favoritesReceived = createAsyncThunk(
+  '@@user/favoritesReceived',
   async (_, { getState, rejectWithValue, extra: { api } }) => {
     const { user } = getState().user;
     if (user) {

@@ -1,1 +1,1 @@
-export { themeReducer, changeTheme, selectTheme } from './model/slice';
+export { themeReducer, themeToggled, selectTheme } from './model/slice';

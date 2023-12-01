@@ -3,9 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { useCallback } from 'react';
 import { selectRegisterInfo, selectLoginInfo } from 'entities/auth';
 import { paths } from 'shared/model/paths-config';
-import { registerUser } from '../register/model/register-user';
-import { logoutUser } from '../logout/model/logout-user';
-import { loginUser } from '../login/model/login-user';
+import { userDataCleared } from 'entities/user';
+import { userRegisters } from '../register/model/user-registers';
+import { userLogsOut } from '../logout/model/user-logs-out';
+import { userLogsIn } from '../login/model/user-logs-in';
 
 export const useAuth = () => {
   const { isLoading: isRegisterLoading, error: registerError } =
@@ -19,15 +20,16 @@ export const useAuth = () => {
     ({ email, password }, formType) => {
       const action =
         formType === 'registration'
-          ? registerUser({ email, password })
-          : loginUser({ email, password });
+          ? userRegisters({ email, password })
+          : userLogsIn({ email, password });
       dispatch(action);
     },
     [dispatch],
   );
 
   const handleLogout = useCallback(() => {
-    dispatch(logoutUser());
+    dispatch(userLogsOut());
+    dispatch(userDataCleared());
     navigate(paths.home, { replace: true });
   }, [dispatch, navigate]);
 

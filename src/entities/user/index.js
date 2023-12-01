@@ -1,5 +1,6 @@
 export {
   userReducer,
+  userDataCleared,
   selectHistory,
   selectIsUserLoading,
   selectFavorites,
