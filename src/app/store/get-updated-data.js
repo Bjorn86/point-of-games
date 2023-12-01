@@ -1,18 +1,18 @@
-import { getFavorites } from 'features/favorites/model/get-favorites';
-import { getHistory } from 'features/history/model/get-history';
+import { favoritesReceived } from 'features/favorites/model/favorites-received';
+import { historyReceived } from 'features/history/model/history-received';
 
 export const getUpdatedData = (store) => (next) => (action) => {
   if (
-    action.type === '@@history/add/fulfilled' ||
-    action.type === '@@history/remove/fulfilled'
+    action.type === '@@history/addedToHistory/fulfilled' ||
+    action.type === '@@history/deletedFromHistory/fulfilled'
   ) {
-    store.dispatch(getHistory());
+    store.dispatch(historyReceived());
   }
   if (
-    action.type === '@@favorites/add/fulfilled' ||
-    action.type === '@@favorites/remove/fulfilled'
+    action.type === '@@favorites/addedToFavorites/fulfilled' ||
+    action.type === '@@favorites/deletedFromFavorites/fulfilled'
   ) {
-    store.dispatch(getFavorites());
+    store.dispatch(favoritesReceived());
   }
   next(action);
 };

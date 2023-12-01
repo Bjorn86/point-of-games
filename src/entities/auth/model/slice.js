@@ -1,18 +1,18 @@
 import { createSlice, createSelector } from '@reduxjs/toolkit';
-import { registerUser } from 'features/auth/register/model/register-user';
-import { logoutUser } from 'features/auth/logout/model/logout-user';
-import { loginUser } from 'features/auth/login/model/login-user';
+import { userRegisters } from 'features/auth/register/model/user-registers';
+import { userLogsOut } from 'features/auth/logout/model/user-logs-out';
+import { userLogsIn } from 'features/auth/login/model/user-logs-in';
 
 const initialState = {
-  register: {
+  userRegisters: {
     isLoading: false,
     error: null,
   },
-  login: {
+  userLogsIn: {
     isLoading: false,
     error: null,
   },
-  logout: {
+  userLogsOut: {
     isLoading: false,
     error: null,
   },
@@ -23,38 +23,38 @@ export const authSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(registerUser.pending, (state) => {
-      state.register.isLoading = true;
-      state.register.error = null;
+    builder.addCase(userRegisters.pending, (state) => {
+      state.userRegisters.isLoading = true;
+      state.userRegisters.error = null;
     });
-    builder.addCase(registerUser.rejected, (state, action) => {
-      state.register.isLoading = false;
-      state.register.error = action.payload || action.meta.error;
+    builder.addCase(userRegisters.rejected, (state, action) => {
+      state.userRegisters.isLoading = false;
+      state.userRegisters.error = action.payload || action.meta.error;
     });
-    builder.addCase(registerUser.fulfilled, (state) => {
-      state.register.isLoading = false;
+    builder.addCase(userRegisters.fulfilled, (state) => {
+      state.userRegisters.isLoading = false;
     });
-    builder.addCase(loginUser.pending, (state) => {
-      state.login.isLoading = true;
-      state.login.error = null;
+    builder.addCase(userLogsIn.pending, (state) => {
+      state.userLogsIn.isLoading = true;
+      state.userLogsIn.error = null;
     });
-    builder.addCase(loginUser.rejected, (state, action) => {
-      state.login.isLoading = false;
-      state.login.error = action.payload || action.meta.error;
+    builder.addCase(userLogsIn.rejected, (state, action) => {
+      state.userLogsIn.isLoading = false;
+      state.userLogsIn.error = action.payload || action.meta.error;
     });
-    builder.addCase(loginUser.fulfilled, (state) => {
-      state.login.isLoading = false;
+    builder.addCase(userLogsIn.fulfilled, (state) => {
+      state.userLogsIn.isLoading = false;
     });
-    builder.addCase(logoutUser.pending, (state) => {
-      state.logout.isLoading = true;
-      state.logout.error = null;
+    builder.addCase(userLogsOut.pending, (state) => {
+      state.userLogsOut.isLoading = true;
+      state.userLogsOut.error = null;
     });
-    builder.addCase(logoutUser.rejected, (state, action) => {
-      state.logout.isLoading = false;
-      state.logout.error = action.payload || action.meta.error;
+    builder.addCase(userLogsOut.rejected, (state, action) => {
+      state.userLogsOut.isLoading = false;
+      state.userLogsOut.error = action.payload || action.meta.error;
     });
-    builder.addCase(logoutUser.fulfilled, (state) => {
-      state.logout.isLoading = false;
+    builder.addCase(userLogsOut.fulfilled, (state) => {
+      state.userLogsOut.isLoading = false;
     });
   },
 });
@@ -62,8 +62,8 @@ export const authSlice = createSlice({
 export const authReducer = authSlice.reducer;
 
 export const selectRegisterInfo = createSelector(
-  (state) => state.auth.register.isLoading,
-  (state) => state.auth.register.error,
+  (state) => state.auth.userRegisters.isLoading,
+  (state) => state.auth.userRegisters.error,
   (isLoading, error) => ({
     isLoading,
     error,
@@ -71,8 +71,8 @@ export const selectRegisterInfo = createSelector(
 );
 
 export const selectLoginInfo = createSelector(
-  (state) => state.auth.login.isLoading,
-  (state) => state.auth.login.error,
+  (state) => state.auth.userLogsIn.isLoading,
+  (state) => state.auth.userLogsIn.error,
   (isLoading, error) => ({
     isLoading,
     error,

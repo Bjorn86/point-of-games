@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const getUserData = createAsyncThunk(
-  '@@user/getUserData',
+export const userDbCreated = createAsyncThunk(
+  '@@user/userDbCreated',
   async (email, { rejectWithValue, extra: { api } }) => {
     try {
-      const res = await api.getUserData(email);
-      return res.data();
+      await api.createUserDB(email);
+      return email;
     } catch (error) {
       return rejectWithValue(error.message);
     }

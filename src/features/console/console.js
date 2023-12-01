@@ -1,9 +1,9 @@
-import { setEnteredParams } from './model/set-entered-params';
+import { enteredParamsSet } from './model/entered-params-set';
 import { parseCommandString } from './lib/utils';
 
 export const point = (dispatch) => (commandString) => {
   const { command, params } = parseCommandString(commandString);
   if (command) {
-    dispatch(setEnteredParams(command, params));
+    dispatch(enteredParamsSet(command, params));
   }
 };

@@ -1,47 +1,47 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { removeFromFavorites } from 'features/favorites/model/remove-from-favorites';
-import { removeFromHistory } from 'features/history/model/remove-from-history';
-import { addToFavorites } from 'features/favorites/model/add-to-favorites';
-import { getFavorites } from 'features/favorites/model/get-favorites';
-import { addToHistory } from 'features/history/model/add-to-history';
-import { createUserDB } from 'features/user/model/create-user-db';
-import { getHistory } from 'features/history/model/get-history';
-import { getUserData } from 'features/user/model/get-user-data';
+import { deletedFromFavorites } from 'features/favorites/model/deleted-from-favorites';
+import { deletedFromHistory } from 'features/history/model/deleted-from-history';
+import { favoritesReceived } from 'features/favorites/model/favorites-received';
+import { addedToFavorites } from 'features/favorites/model/added-to-favorites';
+import { historyReceived } from 'features/history/model/history-received';
+import { userDataReceived } from 'features/user/model/user-data-received';
+import { addedToHistory } from 'features/history/model/added-to-history';
+import { userDbCreated } from 'features/user/model/user-db-created';
 
 const initialState = {
   user: null,
   favorites: [],
   history: [],
   meta: {
-    createDB: {
+    userDbCreated: {
       isLoading: false,
       error: null,
     },
-    getUser: {
+    userDataReceived: {
       isLoading: false,
       error: null,
     },
-    getHistory: {
+    historyReceived: {
       isLoading: false,
       error: null,
     },
-    addToHistory: {
+    addedToHistory: {
       isLoading: false,
       error: null,
     },
-    removeFromHistory: {
+    deletedFromHistory: {
       isLoading: false,
       error: null,
     },
-    getFavorites: {
+    favoritesReceived: {
       isLoading: false,
       error: null,
     },
-    addToFavorites: {
+    addedToFavorites: {
       isLoading: false,
       error: null,
     },
-    removeFromFavorites: {
+    deletedFromFavorites: {
       isLoading: false,
       error: null,
     },
@@ -51,107 +51,116 @@ const initialState = {
 export const userSlice = createSlice({
   name: '@@user',
   initialState,
-  reducers: {},
+  reducers: {
+    userDataCleared: (state) => {
+      state.user = null;
+      state.favorites = [];
+      state.history = [];
+    },
+  },
   extraReducers: (builder) => {
-    builder.addCase(createUserDB.pending, (state) => {
-      state.meta.createDB.isLoading = true;
-      state.meta.createDB.error = null;
+    builder.addCase(userDbCreated.pending, (state) => {
+      state.meta.userDbCreated.isLoading = true;
+      state.meta.userDbCreated.error = null;
     });
-    builder.addCase(createUserDB.rejected, (state, action) => {
-      state.meta.createDB.isLoading = false;
-      state.meta.createDB.error = action.payload || action.meta.error;
+    builder.addCase(userDbCreated.rejected, (state, action) => {
+      state.meta.userDbCreated.isLoading = false;
+      state.meta.userDbCreated.error = action.payload || action.meta.error;
     });
-    builder.addCase(createUserDB.fulfilled, (state, action) => {
+    builder.addCase(userDbCreated.fulfilled, (state, action) => {
       state.user = action.payload;
-      state.meta.createDB.isLoading = false;
+      state.meta.userDbCreated.isLoading = false;
     });
-    builder.addCase(getUserData.pending, (state) => {
-      state.meta.getUser.isLoading = true;
-      state.meta.getUser.error = null;
+    builder.addCase(userDataReceived.pending, (state) => {
+      state.meta.userDataReceived.isLoading = true;
+      state.meta.userDataReceived.error = null;
     });
-    builder.addCase(getUserData.rejected, (state, action) => {
-      state.meta.getUser.isLoading = false;
-      state.meta.getUser.error = action.payload || action.meta.error;
+    builder.addCase(userDataReceived.rejected, (state, action) => {
+      state.meta.userDataReceived.isLoading = false;
+      state.meta.userDataReceived.error = action.payload || action.meta.error;
     });
-    builder.addCase(getUserData.fulfilled, (state, action) => {
-      state.user = action.payload.email;
+    builder.addCase(userDataReceived.fulfilled, (state, action) => {
+      state.user = action.payload.user;
       state.favorites = action.payload.favorites;
       state.history = action.payload.history;
-      state.meta.getUser.isLoading = false;
+      state.meta.userDataReceived.isLoading = false;
     });
-    builder.addCase(getHistory.pending, (state) => {
-      state.meta.getHistory.isLoading = true;
-      state.meta.getHistory.error = null;
+    builder.addCase(historyReceived.pending, (state) => {
+      state.meta.historyReceived.isLoading = true;
+      state.meta.historyReceived.error = null;
     });
-    builder.addCase(getHistory.rejected, (state, action) => {
-      state.meta.getHistory.isLoading = false;
-      state.meta.getHistory.error = action.payload || action.meta.error;
+    builder.addCase(historyReceived.rejected, (state, action) => {
+      state.meta.historyReceived.isLoading = false;
+      state.meta.historyReceived.error = action.payload || action.meta.error;
     });
-    builder.addCase(getHistory.fulfilled, (state, action) => {
+    builder.addCase(historyReceived.fulfilled, (state, action) => {
       state.history = action.payload;
-      state.meta.getHistory.isLoading = false;
+      state.meta.historyReceived.isLoading = false;
     });
-    builder.addCase(addToHistory.pending, (state) => {
-      state.meta.addToHistory.isLoading = true;
-      state.meta.addToHistory.error = null;
+    builder.addCase(addedToHistory.pending, (state) => {
+      state.meta.addedToHistory.isLoading = true;
+      state.meta.addedToHistory.error = null;
     });
-    builder.addCase(addToHistory.rejected, (state, action) => {
-      state.meta.addToHistory.isLoading = false;
-      state.meta.addToHistory.error = action.payload || action.meta.error;
+    builder.addCase(addedToHistory.rejected, (state, action) => {
+      state.meta.addedToHistory.isLoading = false;
+      state.meta.addedToHistory.error = action.payload || action.meta.error;
     });
-    builder.addCase(addToHistory.fulfilled, (state) => {
-      state.meta.addToHistory.isLoading = false;
+    builder.addCase(addedToHistory.fulfilled, (state) => {
+      state.meta.addedToHistory.isLoading = false;
     });
-    builder.addCase(removeFromHistory.pending, (state) => {
-      state.meta.removeFromHistory.isLoading = true;
-      state.meta.removeFromHistory.error = null;
+    builder.addCase(deletedFromHistory.pending, (state) => {
+      state.meta.deletedFromHistory.isLoading = true;
+      state.meta.deletedFromHistory.error = null;
     });
-    builder.addCase(removeFromHistory.rejected, (state, action) => {
-      state.meta.removeFromHistory.isLoading = false;
-      state.meta.removeFromHistory.error = action.payload || action.meta.error;
+    builder.addCase(deletedFromHistory.rejected, (state, action) => {
+      state.meta.deletedFromHistory.isLoading = false;
+      state.meta.deletedFromHistory.error = action.payload || action.meta.error;
     });
-    builder.addCase(removeFromHistory.fulfilled, (state) => {
-      state.meta.removeFromHistory.isLoading = false;
+    builder.addCase(deletedFromHistory.fulfilled, (state) => {
+      state.meta.deletedFromHistory.isLoading = false;
     });
-    builder.addCase(getFavorites.pending, (state) => {
-      state.meta.getFavorites.isLoading = true;
-      state.meta.getFavorites.error = null;
+    builder.addCase(favoritesReceived.pending, (state) => {
+      state.meta.favoritesReceived.isLoading = true;
+      state.meta.favoritesReceived.error = null;
     });
-    builder.addCase(getFavorites.rejected, (state, action) => {
-      state.meta.getFavorites.isLoading = false;
-      state.meta.getFavorites.error = action.payload || action.meta.error;
+    builder.addCase(favoritesReceived.rejected, (state, action) => {
+      state.meta.favoritesReceived.isLoading = false;
+      state.meta.favoritesReceived.error = action.payload || action.meta.error;
     });
-    builder.addCase(getFavorites.fulfilled, (state, action) => {
+    builder.addCase(favoritesReceived.fulfilled, (state, action) => {
       state.favorites = action.payload;
-      state.meta.getFavorites.isLoading = false;
+      state.meta.favoritesReceived.isLoading = false;
     });
-    builder.addCase(addToFavorites.pending, (state) => {
-      state.meta.addToFavorites.isLoading = true;
-      state.meta.addToFavorites.error = null;
+    builder.addCase(addedToFavorites.pending, (state) => {
+      state.meta.addedToFavorites.isLoading = true;
+      state.meta.addedToFavorites.error = null;
     });
-    builder.addCase(addToFavorites.rejected, (state, action) => {
-      state.meta.addToFavorites.isLoading = false;
-      state.meta.addToFavorites.error = action.payload || action.meta.error;
+    builder.addCase(addedToFavorites.rejected, (state, action) => {
+      state.meta.addedToFavorites.isLoading = false;
+      state.meta.addedToFavorites.error = action.payload || action.meta.error;
     });
-    builder.addCase(addToFavorites.fulfilled, (state) => {
-      state.meta.addToFavorites.isLoading = false;
+    builder.addCase(addedToFavorites.fulfilled, (state) => {
+      state.meta.addedToFavorites.isLoading = false;
     });
-    builder.addCase(removeFromFavorites.pending, (state) => {
-      state.meta.removeFromFavorites.isLoading = true;
-      state.meta.removeFromFavorites.error = null;
+    builder.addCase(deletedFromFavorites.pending, (state) => {
+      state.meta.deletedFromFavorites.isLoading = true;
+      state.meta.deletedFromFavorites.error = null;
     });
-    builder.addCase(removeFromFavorites.rejected, (state, action) => {
-      state.meta.removeFromFavorites.isLoading = false;
-      state.meta.removeFromFavorites.error =
+    builder.addCase(deletedFromFavorites.rejected, (state, action) => {
+      state.meta.deletedFromFavorites.isLoading = false;
+      state.meta.deletedFromFavorites.error =
         action.payload || action.meta.error;
     });
-    builder.addCase(removeFromFavorites.fulfilled, (state) => {
-      state.meta.removeFromFavorites.isLoading = false;
+    builder.addCase(deletedFromFavorites.fulfilled, (state) => {
+      state.meta.deletedFromFavorites.isLoading = false;
     });
   },
 });
 
 export const userReducer = userSlice.reducer;
+export const { userDataCleared } = userSlice.actions;
+
 export const selectHistory = (state) => state.user.history;
 export const selectFavorites = (state) => state.user.favorites;
-export const selectIsUserLoading = (state) => state.user.meta.getUser.isLoading;
+export const selectIsUserLoading = (state) =>
+  state.user.meta.userDataReceived.isLoading;

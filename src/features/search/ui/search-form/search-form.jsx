@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { searchValidationSchema } from 'shared/model/search-validation-schema';
-import { addToHistory } from 'features/history/model/add-to-history';
+import { addedToHistory } from 'features/history/model/added-to-history';
 import { useDebounce } from 'shared/lib/use-debounce';
 import Input from 'shared/ui/input/input';
 import Form from 'shared/ui/form/form';
@@ -28,7 +28,7 @@ export function SearchForm({ lastQuery }) {
 
   const onSubmit = useCallback(
     (query) => {
-      dispatch(addToHistory(query.search));
+      dispatch(addedToHistory(query.search));
       navigate(`/search?query=${query.search}`);
       setSuggestionsShown(false);
     },

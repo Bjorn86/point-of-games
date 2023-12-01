@@ -60,7 +60,7 @@
   - [ ] Проведена **оптимизация приложения**
   - [x] **Feature Flags.** Реализовать фичу “Поделиться в телеграм”, закрытую под фича флагом
   - [ ] Добавить тесты через jest, react-testing-library или Playwright.
-  - [x] Связь UI и бизнес-логики построена не через команды, а через **события**
+  - [x] Связь UI и бизнес-логики построена не через команды, а через **события** ([пример нэйминга экшена](https://github.com/Bjorn86/point-of-games/tree/main/src/features/favorites/model/added-to-favorites.js), [пример использования события](https://github.com/Bjorn86/point-of-games/tree/main/src/features/favorites/lib/use-favorites.jsx))
   - [x] **Project Console API** ([фича](https://github.com/Bjorn86/point-of-games/tree/main/src/features/console))
 
 ### Функциональность проекта

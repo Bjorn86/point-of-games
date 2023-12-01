@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { CurrentUserContext } from 'app/contexts';
+import { AuthContext } from 'app/contexts';
 import { Logout } from 'features/auth/logout';
 import { navListForGuest, navListForUser } from './model/config';
 import HeaderLink from '../header-link/header-link';
@@ -7,7 +7,7 @@ import s from './navigation.module.scss';
 
 // NAVIGATION COMPONENT
 function Navigation() {
-  const { currentUser } = useContext(CurrentUserContext);
+  const { isAuthorized } = useContext(AuthContext);
 
   function renderLinksList(list) {
     return list.map((item) => (
@@ -20,10 +20,10 @@ function Navigation() {
   return (
     <nav>
       <ul className={s.list}>
-        {currentUser
+        {isAuthorized
           ? renderLinksList(navListForUser)
           : renderLinksList(navListForGuest)}
-        {currentUser && (
+        {isAuthorized && (
           <li>
             <Logout />
           </li>

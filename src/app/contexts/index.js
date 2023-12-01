@@ -1,1 +1,1 @@
-export { CurrentUserContext } from './current-user';
+export { AuthContext } from './auth';
